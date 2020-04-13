@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"	
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Java Beans | View All Orders</title>
+	
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="datatables.min.css" />
+	<h:outputScript library="js" name="jquery.min.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="datatables.min.js" />
+</h:head>
+
+<h:body>
+	<div class="container">
+		<div class="row">
+			<h1>View All Orders</h1>
+		</div>
+		<br/>
+		<div class="row-justify-center">
+			<table class="table table-hover" id="tblOrders">
+			  <thead>
+			    <tr>
+			      <th>Order No.</th>
+			      <th>Product Name</th>
+			      <th>Price</th>
+			      <th>Qty</th>
+			      <th>Status</th>
+			      <th>Total</th>
+			      <th>Customer Name</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>6739</td>
+			      <td>French Fries</td>
+			      <td>1500</td>
+			      <td>1</td>
+			      <td>For Confirmation</td>
+			      <td>1500</td>
+			      <td>John Doe</td>
+			    </tr>
+			    
+			    <tr>
+			      <td>8201</td>
+			      <td>Donut</td>
+			      <td>1000</td>
+			      <td>5</td>
+			      <td>For Confirmation</td>
+			      <td>5000</td>
+			      <td>Bern Recci</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</h:body>
+<script>
+$(document).ready( function () {
+    $('#tblOrders').DataTable();
+} );
+</script>
+</html>

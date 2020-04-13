@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"	
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<title>Java Beans | View All Products</title>
+	
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="datatables.min.css" />
+	<h:outputScript library="js" name="jquery.min.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="datatables.min.js" />
+</h:head>
+
+<h:body>
+	<div class="container">
+		<h1>Product Categories</h1>
+		<br/>
+		<h2 class="text-center">Categories</h2>
+		<br/>
+		<div class="row justify-content-center">
+			<a href = "#">
+				<h:graphicImage name="images/blank-bg.png" styleClass="categoriesImage" height="180px" width="200px" style="margin-left: 30px; margin-right: 30px;" />
+			</a>
+			<a href = "#">
+				<h:graphicImage name="images/blank-bg.png" styleClass="categoriesImage" height="180px" width="200px" style="margin-left: 30px; margin-right: 30px;" />
+			</a>
+			<a href = "#">
+				<h:graphicImage name="images/blank-bg.png" styleClass="categoriesImage" height="180px" width="200px" style="margin-left: 30px; margin-right: 30px;" />
+			</a>
+		</div>
+			
+			
+	</div>
+	<br/>
+	<div class="container">
+		<h1>Products Catalog</h1>
+		<br/>
+		<div class="row">
+			<div class="col-sm-3">
+				<div>
+					<form>
+						<div class="input-group">
+							<h:inputText class="form-control" placeholder="Search"/>
+							<div class="input-group-append">
+								<button type="button">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</div>
+						</div>
+					</form>
+					<br/>
+					
+					<div class="card">
+						<div class="card-header">
+							Categories
+						</div>
+						<div class="card-body">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item"><a href="#">All<span class="badge badge-secondary float-right">74</span></a></li>
+								<li class="list-group-item"><a href="#">Coffee<span class="badge badge-secondary float-right">30</span></a></li>
+								<li class="list-group-item"><a href="#">Equipment<span class="badge badge-secondary float-right">24</span></a></li>
+								<li class="list-group-item"><a href="#">Drinkware<span class="badge badge-secondary float-right">20</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div>
+					<div class="card">
+						<div class="card-header">
+							Filters
+						</div>
+						<div class="card-body">
+							<form>
+								<div class="filterCoffee">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownCoffee">
+								    Coffee
+								  </button>
+								  	<div class="col justify-content-md-center" id="choicesCoffee" aria-labelledby="dropdownCoffee">
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="arabicaBeans"/>
+										  <label class="form-check-label" for="arabicaBeans">Arabica Beans</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="robustaBeans"/>
+										  <label class="form-check-label" for="robustaBeans">Robusta Beans</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="libericaBeans"/>
+										  <label class="form-check-label" for="libericaBeans">Liberica Beans</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="exelsaBeans"/>
+										  <label class="form-check-label" for="exelsaBeans">Exelsa Beans</label>
+										</div>
+								  	</div>
+								</div>
+								<br/>
+								<div class="filterEquipment">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownEquipment">
+								    Equipment
+								  </button>
+								  	<div class="col justify-content-md-center" id="choicesEquipment" aria-labelledby="dropdownEquipment">
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="equipment1"/>
+										  <label class="form-check-label" for="equipment1">Equipment1</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="equipment2"/>
+										  <label class="form-check-label" for="equipment2">Equipment2</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="equipment3"/>
+										  <label class="form-check-label" for="equipment3">Equipment3</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="equipment4"/>
+										  <label class="form-check-label" for="equipment4">Equipment4</label>
+										</div>
+								  	</div>
+								</div>
+								<br/>
+								<div class="filterDrinkware">
+								  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownDrinkware">
+								    Drinkware
+								  </button>
+								  	<div class="col justify-content-md-center" id="choicesDrinkware" aria-labelledby="dropdownDrinkware">
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="drinkware1"/>
+										  <label class="form-check-label" for="drinkware1">Drinkware1</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="drinkware2"/>
+										  <label class="form-check-label" for="drinkware2">Drinkware2</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="drinkware3"/>
+										  <label class="form-check-label" for="drinkware3">Drinkware3</label>
+										</div>
+										<div class="form-check">
+										  <input type="checkbox" class="form-check-input" id="drinkware4"/>
+										  <label class="form-check-label" for="drinkware4">Drinkware4</label>
+										</div>
+								  	</div>
+								</div>
+								<br/>
+								<button type="submit" class="btn btn-primary btn-block">Apply Filter</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-9">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Product Name</h5>
+								<h:graphicImage name="images/blank-bg.png" class="img-fluid"></h:graphicImage>
+								<br/><br/>
+								<p class="card-text">Price</p>
+								<a href="#" class="btn btn-primary btn-block">View Details</a>
+								<a href="#" class="btn btn-danger btn-block">Delete</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Product Name</h5>
+								<h:graphicImage name="images/blank-bg.png" class="img-fluid" id="productImage"></h:graphicImage>
+								<br/><br/>
+								<p class="card-text">Price</p>
+								<a href="#" class="btn btn-primary btn-block">View Details</a>
+								<a href="#" class="btn btn-danger btn-block">Delete</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Product Name</h5>
+								<h:graphicImage name="images/blank-bg.png" class="img-fluid" id="productImage"></h:graphicImage>
+								<br/><br/>
+								<p class="card-text">Price</p>
+								<a href="#" class="btn btn-primary btn-block">View Details</a>
+								<a href="#" class="btn btn-danger btn-block">Delete</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Product Name</h5>
+								<h:graphicImage name="images/blank-bg.png" class="img-fluid" id="productImage"></h:graphicImage>
+								<br/><br/>
+								<p class="card-text">Price</p>
+								<a href="#" class="btn btn-primary btn-block">View Details</a>
+								<a href="#" class="btn btn-danger btn-block">Delete</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Product Name</h5>
+								<h:graphicImage name="images/blank-bg.png" class="img-fluid" id="productImage"></h:graphicImage>
+								<br/><br/>
+								<p class="card-text">Price</p>
+								<a href="#" class="btn btn-primary btn-block">View Details</a>
+								<a href="#" class="btn btn-danger btn-block">Delete</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="card">
+							<div class="card-body">
+								<h5 class="card-title">Product Name</h5>
+								<h:graphicImage name="images/blank-bg.png" class="img-fluid" id="productImage"></h:graphicImage>
+								<br/><br/>
+								<p class="card-text">Price</p>
+								<a href="#" class="btn btn-primary btn-block">View Details</a>
+								<a href="#" class="btn btn-danger btn-block">Delete</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</h:body>
+
+<script>
+$( "#dropdownCoffee" ).click(function() {
+	$("#choicesCoffee").slideToggle();
+});
+$( "#dropdownEquipment" ).click(function() {
+	$("#choicesEquipment").slideToggle();
+});
+$( "#dropdownDrinkware" ).click(function() {
+	$("#choicesDrinkware").slideToggle();
+});
+</script>
+</html>
