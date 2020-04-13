@@ -1,0 +1,122 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+<h:head>
+	<title>About Us - Java Beans</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>
+<h:body>
+
+	<!--Navigation Bar-->
+	<ui:include src="/pages/templates/navbar-customer.xhtml" />
+	<br/>
+	
+	<!-- Container -->
+	<div class="container">
+	
+		<h2 class="text-center">About Us</h2>
+		<br/>
+		
+		<h:graphicImage library="img/placeholders" name="placeholder-gray.PNG" 
+			styleClass="d-block w-100 h-50" alt="Placeholder"/>
+		<br/>
+		
+		<!-- Content Row -->
+		<div class="row">
+		
+			<!-- Left Empty Column -->
+			<div class="col-3"></div>
+			
+			<div class="col-6">
+				<p class="text-center">
+					Java Beans is a group of people who are deeply passionate 
+					about coffee. We want to spread our love and passion for 
+					coffee and let people learn and be a part of the growing 
+					coffee culture. In order to make this happen, our goal is 
+					to make the highest quality coffee beans and equipment
+					available and accessible to everyone. We want people to
+					make and experience coffee at its finest.
+				</p>
+			</div>
+			
+			<!-- Right Empty Column -->
+			<div class="col-3"></div>
+			
+		<!-- End of Content Row -->
+		</div>
+		<br/>
+		
+		<!-- Content Row -->
+		<div class="row">
+		
+			<div class="col-6 d-flex align-items-center">
+				<p class="text-center">
+					We have partnered with the leading coffee traders and
+					equipment manufacturers in the world and we're bringing
+					them to you! Shop and enjoy different varieties of coffee
+					beans hailing from coffee growing regions like Brazil,
+					Vietnam, Colombia, Indonesia and Ethiopia. Pick your
+					preferred type of coffee beans, your favorite roasts,
+					experiment with different coffee blends or enjoy single
+					origin coffee. Make that perfect cup of coffee with
+					equipment from established brands like Hario, Chemex and
+					Aeropress. Looking to open your own cafe? Get your
+					equipment from us! 
+				</p>
+			</div>
+			
+			<div class="col-6">
+				<h:graphicImage library="img/placeholders" 
+					name="placeholder-gray.PNG" styleClass="d-block w-100" 
+					alt="Placeholder"/>
+			</div>
+			
+		<!-- End of Content -->
+		</div>
+		<br/><br/>
+		
+		<!-- Content Row -->
+		<div class="row">
+		
+			<div class="col-6">
+				<h3 class="text-center">Mission</h3>
+				<hr/>
+				<br/>
+				
+				<p>
+					Our mission is to make high quality coffee beans and
+					equipment available and accessible to consumers
+				</p>
+			</div>
+			
+			<div class="col-6">
+				<h3 class="text-center">Vision</h3>
+				<hr/>
+				<br/>
+				
+				<p>
+					Our vision is to increase growth of coffee culture in the
+					Philippines and make more people aware that they can make
+					great coffee on their own and experience it at the comfort
+					of their home or office.
+				</p>
+			</div>
+		
+		<!-- End of Content -->
+		</div>
+		<br/>
+	
+	<!-- End of Container -->
+	</div>
+	
+	<!-- Footer -->
+	<ui:include src="/pages/templates/footer.xhtml" />
+		
+	<h:outputScript library="js" name="jquery.js" />
+	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+</h:body>
+
+</html>
