@@ -1,0 +1,20 @@
+ #productImage{
+ 	display: block;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ 	width: 50%;
+ }
+ 
+ .categoriesOptions{
+ 	display: block;
+ 	text-align: center;
+ }
+ 
+.categoriesImage{
+ 	margin-left: 30px;
+ 	margin-right: 30px;
+ }
+ 
+ .description{
+ 	text-indent: 50px;
+ }
