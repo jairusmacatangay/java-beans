@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"	
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Java Beans | View All Customers</title>
+	
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="datatables.min.css" />
+	<h:outputScript library="js" name="jquery.min.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="datatables.min.js" />
+</h:head>
+
+<h:body>
+	<div class="container">
+		<div class="row">
+			<h1>View All Customers</h1>
+		</div>
+		<br/>
+		<div class="row-justify-center">
+			<table class="table table-hover" id="tblCustomers">
+			  <thead>
+			    <tr>
+			      <th>Customer Name</th>
+			      <th>City</th>
+			      <th>Gender</th>
+			      <th>Age</th>
+			      <th>Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>John Doe</td>
+			      <td>Batangas</td>
+			      <td>Male</td>
+			      <td>21</td>
+			      <td><a href="#" class="btn btn-primary">View Details</a></td>
+			    </tr>
+			    
+			    <tr>
+			      <td>Bern Recci</td>
+			      <td>Manila</td>
+			      <td>Male</td>
+			      <td>20</td>
+			      <td><a href="#" class="btn btn-primary">View Details</a></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</h:body>
+<script>
+$(document).ready( function () {
+    $('#tblCustomers').DataTable();
+} );
+</script>
+</html>
