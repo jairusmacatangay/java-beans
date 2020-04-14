@@ -1,0 +1,327 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<title>Home - Java Beans</title>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>
+<h:body>
+
+	<!--Navigation Bar-->
+	<ui:include src="/pages/templates/navbar-guest.xhtml" />
+
+	<div class="container">
+		
+		<!-- Carousel -->
+		<br/>	
+		<div id="carouselExampleCaptions" class="carousel slide" 
+			data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleCaptions" data-slide-to="0" 
+					class="active">
+				</li>
+				<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+			    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<h:graphicImage library="img/placeholders" 
+						name="placeholder-gray.PNG" styleClass="d-block w-100" 
+						alt="Placeholder"/> 
+			      	<div class="carousel-caption d-none d-md-block">
+			        	<h5>First slide label</h5>
+			        	<p>
+			        		Nulla vitae elit libero, a pharetra augue mollis 
+			        		interdum.
+			        	</p>
+			      	</div>
+			    </div>
+			    <div class="carousel-item">
+			      	<h:graphicImage library="img/placeholders" 
+			      		name="placeholder-gray.PNG" styleClass="d-block w-100" 
+			    		alt="Placeholder"/>
+			      	<div class="carousel-caption d-none d-md-block">
+			        	<h5>Second slide label</h5>
+			        	<p>
+			        		Lorem ipsum dolor sit amet, consectetur adipiscing 
+			        		elit.
+			        	</p>
+			      	</div>
+			    </div>
+			    <div class="carousel-item">
+			    	<h:graphicImage library="img/placeholders" 
+			    		name="placeholder-gray.PNG" styleClass="d-block w-100" 
+			    		alt="Placeholder"/>
+			      	<div class="carousel-caption d-none d-md-block">
+			        	<h5>Third slide label</h5>
+			        	<p>
+			        		Praesent commodo cursus magna, vel scelerisque nisl 
+			        		consectetur.
+			        	</p>
+			      	</div>
+			    </div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleCaptions" 
+				role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			</a>
+		  	<a class="carousel-control-next" href="#carouselExampleCaptions" 
+		  		role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			</a>
+		</div>
+		<br/>
+		
+		<!-- Coffee Catalog Snippet -->
+		<h2>Coffee</h2>
+		<hr />
+		<div class="row">
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		
+		<!-- Equipment Catalog Snippet -->
+		<h2>Equipment</h2>
+		<hr />
+		<div class="row">
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+	
+		<!-- Drinkware Catalog Snippet -->
+		<h2>Drinkware</h2>
+		<hr />
+		<div class="row">
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="card">
+					<h:graphicImage library="img/placeholders" 
+						name="image-placeholder.jpg" styleClass="card-img-top"/>
+					<div class="card-body">
+						<h6>Product Name</h6>
+						<p>Price</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br/>
+		
+		<!-- Offerings -->
+		<br/>
+		<h1 class="text-center">What We Offer</h1>
+		<hr/>
+		<br/>
+		<div class="row">
+			<div class="col-3">
+				<h:graphicImage library="img/icons" name="coffee.png" width="30%"
+					styleClass="mx-auto d-block"/>
+				<br/><br/>
+				<p class="text-center">
+					Lorem ipsum dolor sit amet, consectatur adipiscing elit.
+					Nunc maximus, nulla ut commodo sagittis, sapien dui, non
+					pulvinar lorem felis ne erat
+				</p>
+			</div>
+			<div class="col-3">
+				<h:graphicImage library="img/icons" name="brewing.png" width="30%"
+					styleClass="mx-auto d-block"/>
+				<br/><br/>
+				<p class="text-center">
+					Lorem ipsum dolor sit amet, consectatur adipiscing elit.
+					Nunc maximus, nulla ut commodo sagittis, sapien dui, non
+					pulvinar lorem felis ne erat
+				</p>
+			</div>
+			<div class="col-3">
+				<h:graphicImage library="img/icons" name="food.png" width="30%"
+					styleClass="mx-auto d-block"/>
+				<br/><br/>
+				<p class="text-center">
+					Lorem ipsum dolor sit amet, consectatur adipiscing elit.
+					Nunc maximus, nulla ut commodo sagittis, sapien dui, non
+					pulvinar lorem felis ne erat
+				</p>
+			</div>
+			<div class="col-3">
+				<h:graphicImage library="img/icons" name="truck.png" width="30%"
+					styleClass="mx-auto d-block"/>
+				<br/><br/>
+				<p class="text-center">
+					Lorem ipsum dolor sit amet, consectatur adipiscing elit.
+					Nunc maximus, nulla ut commodo sagittis, sapien dui, non
+					pulvinar lorem felis ne erat
+				</p>
+			</div>
+		</div>
+		<br/>
+		
+		<!-- Featured Brands -->
+		<h1 class="text-center">Featured Brands</h1>
+		<hr/>
+		<br/>
+		<div class="row">
+			<div class="col-2">
+				<h:graphicImage library="img/brands" name="baratza.png" 
+					width="100%"/>
+			</div>
+			<div class="col-2">
+				<h:graphicImage library="img/brands" name="aeropress.png" 
+					width="100%"/>
+			</div>
+			<div class="col-2">
+				<h:graphicImage library="img/brands" name="hario.png" 
+					width="100%"/>
+			</div>
+			<div class="col-2">
+				<h:graphicImage library="img/brands" name="chemex.jpg" 
+					width="100%"/>
+			</div>
+			<div class="col-2">
+				<h:graphicImage library="img/brands" name="lavazza.png" 
+					width="100%"/>
+			</div>
+			<div class="col-2">
+				<h:graphicImage library="img/brands" name="lacolombe.png" 
+					width="100%"/>
+			</div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-3">
+				<h:graphicImage library="img/brands" name="peets-coffee.png" 
+					width="60%" styleClass="mx-auto d-block"/>
+			</div>
+			<div class="col-3">
+				<h:graphicImage library="img/brands" name="lamarzocco.png" 
+					width="60%" styleClass="mx-auto d-block"/>
+			</div>
+			<div class="col-3">
+				<h:graphicImage library="img/brands" name="groundsandhounds.jpg" 
+					width="60%" styleClass="mx-auto d-block"/>
+			</div>
+			<div class="col-3">
+				<h:graphicImage library="img/brands" name="stumptown.jpg" 
+					width="60%" styleClass="mx-auto d-block"/>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<ui:include src="/pages/templates/footer.xhtml" />
+		
+	<h:outputScript library="js" name="jquery.min.js" />
+	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+</h:body>
+</html>
