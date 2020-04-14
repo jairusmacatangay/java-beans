@@ -16,12 +16,19 @@
 </h:head>
 
 <h:body>
+
+	<!--Navigation Bar-->
+	<ui:include src="/pages/templates/navbar-customer.xhtml" />
+	<br/>
+	
+	<!-- Container -->
 	<div class="container">
-		<div class="row">
-			<h1>Cart</h1>
-		</div>
+		
+		<h1>Cart</h1>
 		<br/>
+		
 		<div class="row">
+		
 			<div class="col-sm-9">
 				<table class="table table-hover" id="tblCart">
 				  <thead>
@@ -37,7 +44,9 @@
 				      <td>
 				      	<div class="row">
 					      	<div class="col">
-					      		<h:graphicImage name="images/blank-bg.png" height="100px" width="120px" />
+					      		<h:graphicImage library="img/placeholders" 
+					      			name="image-placeholder.jpg"
+					      			style="width:50%"/>
 					      	</div>
 					      	<div class="col">
 					      		<p>Product Title 1</p>
@@ -55,7 +64,9 @@
 				      <td>
 				      	<div class="row">
 					      	<div class="col">
-					      		<h:graphicImage name="images/blank-bg.png" height="100px" width="120px" />
+					      		<h:graphicImage library="img/placeholders" 
+					      			name="image-placeholder.jpg"
+					      			style="width:50%"/>
 					      	</div>
 					      	<div class="col">
 					      		<p>Product Title 2</p>
@@ -73,7 +84,9 @@
 				      <td>
 				      	<div class="row">
 					      	<div class="col">
-					      		<h:graphicImage name="images/blank-bg.png" height="100px" width="120px" />
+					      		<h:graphicImage library="img/placeholders" 
+					      			name="image-placeholder.jpg"
+					      			style="width:50%"/>
 					      	</div>
 					      	<div class="col">
 					      		<p>Product Title 3</p>
@@ -89,6 +102,7 @@
 				  </tbody>
 				</table>
 			</div>
+			
 			<div class="col-sm-3">
 				<div class="card">
 					<div class="card-header text-center">
@@ -98,13 +112,22 @@
 						<p>Subtotal <span class="float-right">---</span></p>
 						<p>VAT <span class="float-right">---</span></p>
 						<p>Shipping Fee <span class="float-right">---</span></p>
+						<hr/>
 						<p>Total <span class="float-right">---</span></p>
 						<button class="btn btn-primary btn-block">Checkout</button>
 					</div>
 				</div>
 			</div>
+		
+		<!-- End of Content Row -->
 		</div>
+		
+	<!-- End of Container -->	
 	</div>
+	
+	<!-- Footer -->
+	<ui:include src="/pages/templates/footer.xhtml" />
+	
 </h:body>
 <script>
 $(document).ready( function () {
