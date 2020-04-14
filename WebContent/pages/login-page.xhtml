@@ -1,0 +1,49 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+    	<title>Login - Java Beans</title>
+    	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+    </h:head>
+    <h:body>
+    
+    	<!--Navigation Bar-->
+		<ui:include src="/pages/templates/navbar-guest.xhtml" />
+    
+    	<div class="container">
+    	<br/><h1>Login</h1><br/>
+	    	<h:panelGrid border="1" cellpadding="50" style="margin: 0 auto">
+			    <h:form>
+			    <div style="text-align:center">
+			    	<h2>Welcome to Java Beans!</h2>
+			    	<h4>Don't have an account?</h4>
+			    	<a href="#">Register here</a>
+			    </div>
+			    	<br/>
+			    			
+			    	Email <br/>
+			    	<h:inputText id="email" value="" />
+			    			
+			    	<br/><br/>
+			    			
+			    	Password <br/>
+			    	<h:inputText id="password" value="" />
+			    			
+			    	<br/><br/>
+			    	<h:commandButton value="Login" />
+			    </h:form>
+		    </h:panelGrid>
+	    </div>
+    	
+	    <!-- Footer -->
+		<ui:include src="/pages/templates/footer.xhtml"/>
+			
+		<h:outputScript library="js" name="jquery.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="bootstrap.min.js" />
+	
+    </h:body>
+    
+</html>

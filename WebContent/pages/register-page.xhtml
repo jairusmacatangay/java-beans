@@ -1,0 +1,107 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+	<h:head>
+		<title>Register - Java Beans</title>
+	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+	</h:head>
+	<h:body>
+	
+		<!--Navigation Bar-->
+		<ui:include src="/pages/templates/navbar-guest.xhtml" />
+		
+		<div class="container">
+		
+		<br/><h1>Register</h1><br/>
+		
+		<div class="row" style="text-align:center">
+			<div class="col-12">
+			<h1>Welcome to Java Beans!</h1>
+			<h4>Already have an account?</h4>
+			<a href="#">Login here</a>
+			</div>
+		</div>
+		
+		<br/><br/>
+		<h:form>
+			<h5>Login Credentials</h5>
+			<hr/>
+			<div class="row" style="margin: 0 auto">
+				<div class="col-4">
+					Email <br/> <h:inputText id="email" value="" />
+				</div>
+				<div class="col-4">
+					Password <br/> <h:inputText id="password" value="" />
+				</div>
+				<div class="col-4">
+					Confirm Password <br/> <h:inputText id="confirmPassword" value="" />
+				</div>
+			</div>
+			<br/><h5>Personal Information</h5>
+			<hr/>
+			<div class="row" style="margin: 0 auto">
+				<div class="col-4">
+					First Name <br/> <h:inputText id="firstName" value="" />
+				</div>
+				<div class="col-4">
+					Middle Name <br/> <h:inputText id="middleName" value="" />
+				</div>
+				<div class="col-4">
+					Last Name <br/> <h:inputText id="lastName" value="" />
+				</div>
+				<div class="col-4">
+					<br/>Telephone No. <br/> <h:inputText id="teleNo" value="" />
+				</div>
+				<div class="col-4">
+					<br/>Mobile No. <br/> <h:inputText id="mobileNo" value="" />
+				</div>
+				<div class="col-4">
+					<br/>Date of Birth <br/> <h:inputText id="dob" value="" />
+				</div>
+				<div class="col-12">
+					<br/> Gender <br/>
+					<h:selectOneRadio>
+						<f:selectItem itemValue="Male" itemLabel="Male" />
+						<f:selectItem itemValue="Female" itemLabel="Female" />
+					</h:selectOneRadio>
+				</div>
+			</div>
+			<br/><h5>Address</h5>
+			<hr/>
+			<div class="row" style="margin: 0 auto">
+				<div class="col-4">
+					Bldg / House No. <br/> <h:inputText id="houseNo" value="" />
+				</div>
+				<div class="col-4">
+					Street <br/> <h:inputText id="street" value="" />
+				</div>
+				<div class="col-4">
+					City <br/> <h:inputText id="city" value="" />
+				</div>
+				<div class="col-4">
+					<br/>Barangay <br/> <h:inputText id="barangay" value="" />
+				</div>
+				<div class="col-4">
+					<br/>Province <br/> <h:inputText id="province" value="" />
+				</div>
+				<div class="col-4">
+					<br/>Zip Code <br/> <h:inputText id="zipCode" value="" />
+				</div>
+			</div>
+			<br/>
+			<h:commandButton value="Register" />
+		</h:form>
+		</div>
+		
+		<!-- Footer -->
+		<ui:include src="/pages/templates/footer.xhtml"/>
+				
+		<h:outputScript library="js" name="jquery.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="bootstrap.min.js" />
+		
+	</h:body>
+    
+</html>

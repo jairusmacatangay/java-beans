@@ -1,0 +1,165 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+    	<title>Categories - Java Beans</title>
+	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    </h:head>
+    
+    <h:body>
+    
+    	<!--Navigation Bar-->
+		<ui:include src="/pages/templates/navbar-guest.xhtml" />
+		
+		<div class="container">
+		
+		<br/><h1>Product Categories</h1><br/>
+		
+		<h:form>
+		<div class="row">
+			<div class="col-12">
+				<h2 style="text-align:center">Categories</h2>
+			</div>
+			<div class="col-4">
+				<h:commandLink action="#"> 
+				    <h:graphicImage library="img/placeholders" name="image-placeholder.jpg" styleClass="card-img-top" />
+				</h:commandLink>
+			</div>
+			<div class="col-4">
+				<h:commandLink action="#"> 
+				    <h:graphicImage library="img/placeholders" name="image-placeholder.jpg" styleClass="card-img-top" />
+				</h:commandLink>
+			</div>
+			<div class="col-4">
+				<h:commandLink action="#"> 
+				    <h:graphicImage library="img/placeholders" name="image-placeholder.jpg" styleClass="card-img-top" />
+				</h:commandLink>
+			</div>
+		</div>
+		</h:form>
+		
+		<br/><h1>Products Catalog</h1><br/>
+		
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="well">
+					<h:inputText a:placeholder="Search..." id="search" value="" /><h:commandButton value="Go!" />
+						<br/><br/>
+					<h:panelGrid border="1" cellpadding="50">
+						<h5>Categories</h5>
+						<hr/>
+						<p>All</p>
+						<p>Coffee</p>
+						<p>Equipment</p>
+						<p>Drinkware</p>
+					
+						<h5>Filters</h5>
+							<hr/>
+							<p>Coffee</p>
+							<hr/>
+							<p>Arabica Beans</p>
+							<p>Rabusta Beans</p>
+							<p>Liberica Beans</p>
+							<p>Exelsa Beans</p>
+							<p>Light Beans</p>
+							<p>Medium Beans</p>
+							<p>Medium-Dark Beans</p>
+							<p>Dark Beans</p>
+							<p>Instant Beans</p>
+					</h:panelGrid>
+				</div>
+			</div>
+			<div class="col-lg-9">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="card">
+							<h:graphicImage library="img/placeholders" 
+								name="image-placeholder.jpg" styleClass="card-img-top"/>
+							<div class="card-body">
+								<h6>Product Name</h6>
+								<p>Price</p>
+								<h:commandButton value="View Details" type="button"/>
+								<h:commandButton value="Add to Cart" type="button"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card">
+							<h:graphicImage library="img/placeholders" 
+								name="image-placeholder.jpg" styleClass="card-img-top"/>
+							<div class="card-body">
+								<h6>Product Name</h6>
+								<p>Price</p>
+								<h:commandButton value="View Details" type="button"/>
+								<h:commandButton value="Add to Cart" type="button"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card">
+							<h:graphicImage library="img/placeholders" 
+								name="image-placeholder.jpg" styleClass="card-img-top"/>
+							<div class="card-body">
+								<h6>Product Name</h6>
+								<p>Price</p>
+								<h:commandButton value="View Details" type="button"/>
+								<h:commandButton value="Add to Cart" type="button"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card">
+							<h:graphicImage library="img/placeholders" 
+								name="image-placeholder.jpg" styleClass="card-img-top"/>
+							<div class="card-body">
+								<h6>Product Name</h6>
+								<p>Price</p>
+								<h:commandButton value="View Details" type="button"/>
+								<h:commandButton value="Add to Cart" type="button"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card">
+							<h:graphicImage library="img/placeholders" 
+								name="image-placeholder.jpg" styleClass="card-img-top"/>
+							<div class="card-body">
+								<h6>Product Name</h6>
+								<p>Price</p>
+								<h:commandButton value="View Details" type="button"/>
+								<h:commandButton value="Add to Cart" type="button"/>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="card">
+							<h:graphicImage library="img/placeholders" 
+								name="image-placeholder.jpg" styleClass="card-img-top"/>
+							<div class="card-body">
+								<h6>Product Name</h6>
+								<p>Price</p>
+								<h:commandButton value="View Details" type="button"/>
+								<h:commandButton value="Add to Cart" type="button"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<!-- Footer -->
+		<ui:include src="/pages/templates/footer.xhtml"/>
+				
+		<h:outputScript library="js" name="jquery.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="bootstrap.min.js" />
+	    
+	    </div>
+	    
+    </h:body>
+    
+</html>
