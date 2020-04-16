@@ -23,74 +23,101 @@
 	<!-- Container -->
 	<div class="container">
 
-		<h1>Checkout</h1>
+		<h1>Shipping and Billing Details</h1>
 		<br />
 		
 		<!-- Content Row -->
 		<div class="row">
 		
-			<div class="col-9">
-				<table class="table table-hover" id="tblCheckout">
-					<thead>
-						<tr>
-							<th>Image</th>
-							<th>Product Description</th>
-							<th>Price</th>
-							<th>Qty</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<h:graphicImage library="img/placeholders"
-									name="image-placeholder.jpg" style="width:50%" />
-							</td>
-							<td>Product Title 1</td>
-							<td>Php 1000</td>
-							<td>2</td>
-							<td>
-								<button class="btn btn-danger">Delete</button>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<h:graphicImage library="img/placeholders"
-									name="image-placeholder.jpg" style="width:50%" />
-							</td>
-							<td>Product Title 2</td>
-							<td>Php 1234</td>
-							<td>1</td>
-							<td>
-								<button class="btn btn-danger">Delete</button>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<h:graphicImage library="img/placeholders"
-									name="image-placeholder.jpg" style="width:50%" />
-							</td>
-							<td>Product Title 3</td>
-							<td>Php 1293</td>
-							<td>1</td>
-							<td>
-								<button class="btn btn-danger">Delete</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-sm-9">
+				<div class="row">
+					<div class="col-sm-4">
+						<h3>Customer Details</h3>
+					</div>
+					<div>
+						<a href="#" class="btn btn-primary">Edit</a>
+					</div>
+				</div>
+				<hr/>
+				
+				<div class="row">
+					<div class="col-sm-4"> 
+						<label for="firstName">First Name</label>
+     					<input type="text" class="form-control" id="firstName" value="John" readonly="readonly"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="middleName">Middle Name</label>
+     					<input type="text" class="form-control" id="middleName" value="Smith" readonly="readonly"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="lastName">Last Name</label>
+     					<input type="text" class="form-control" id="lastName" value="Doe" readonly="readonly"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="email">Email</label>
+     					<input type="email" class="form-control" id="email" value="johndoe@example.com" readonly="readonly"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="mobileNo">Mobile No.</label>
+     					<input type="text" class="form-control" id="mobileNo" value="+63-917-817-2282" readonly="readonly"/>
+					</div>
+					<div class="col-sm-4"> 
+					</div>
+				</div>
+				
+				<br/>
+				
+				<div class="row">
+					<div class="col-sm-4">
+						<h3>Address</h3>
+					</div>
+				</div>
+				<hr/>
+				
+				<div class="row">
+					<div class="col-sm-4"> 
+						<label for="houseNo">Bldg/House No.</label>
+     					<input type="text" class="form-control" id="houseNo" value="13"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="street">Street</label>
+     					<input type="text" class="form-control" id="street" value="P. Dandan St."/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="city">City</label>
+     					<input type="text" class="form-control" id="city" value="Batangas City"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="barangay">Barangay</label>
+     					<input type="email" class="form-control" id="barangay" value="8"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="province">Province</label>
+     					<input type="text" class="form-control" id="province" value="Batangas"/>
+					</div>
+					<div class="col-sm-4"> 
+						<label for="zipCode">Zip Code</label>
+     					<input type="text" class="form-control" id="zipCode" value="4200"/>
+					</div>
+				</div>
 			</div>
 			
-			<div class="col-3">
+			<div class="col-sm-3">
 				<div class="card">
-					<div class="card-header text-center">Shipping &amp; Billing</div>
+					<div class="card-header text-center">Items</div>
 					<div class="card-body">
-						<p>Name</p>
-						<p>Address</p>
-						<p>Email</p>
-						<p>Contact No.</p>
+						<p>
+							Product Name <span class="float-right">Qty: 1</span>
+						</p>
+						<p>Php 1450.00</p>
+						
+						<hr/>
+						
+						<p>
+							Product Name <span class="float-right">Qty: 2</span>
+						</p>
+						<p>Php 450.00</p>
+						
 					</div>
 					<div class="card-header text-center">Order Summary</div>
 					<div class="card-body">
@@ -107,7 +134,7 @@
 						<p>
 							Total <span class="float-right">---</span>
 						</p>
-						<button class="btn btn-primary btn-block">Place Order</button>
+						<button class="btn btn-success btn-block">Place Order</button>
 					</div>
 				</div>
 			</div>
