@@ -1,0 +1,96 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+    	<title>Add Product - Java Beans</title>
+	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    </h:head>
+    
+    <h:body>
+    
+    	<!--Navigation Bar-->
+		<ui:include src="/pages/templates/navbar-admin.xhtml" />
+		
+		<!-- Container -->
+		<div class="container">
+		<br/>
+		
+			<h1>Edit Product</h1>
+			<br/>
+			
+			<h:form>
+				
+				<!-- Content Row -->
+				<div class="row">
+				
+					<div class="col-6">
+					
+						<!-- Product Name Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="productName">
+							Product Name
+						</h:outputLabel>
+						<h:inputText id="productName" value="" 
+							styleClass="form-control"/>
+						<br/>
+						
+						<!-- Category Label and Input -->
+						<h:outputLabel styleClass="form-label" for="category">
+							Category
+						</h:outputLabel>
+						<h:inputText id="category" value="" 
+							styleClass="form-control"/> 
+						<br/>
+						
+						<!-- Price Label and Input -->
+						<h:outputLabel styleClass="form-label" for="price">
+							Price
+						</h:outputLabel>
+						<h:inputText id="price" value="" 
+							styleClass="form-control"/>
+							
+					</div>
+					
+					<div class="col-6">
+					
+						<!-- Description Label and Input -->
+						<h:outputLabel styleClass="form-label" for="description">
+							Description
+						</h:outputLabel>
+						<h:inputTextarea styleClass="form-control" rows="5" 
+							id="description" value="" />
+						<br/>
+						
+						<!-- Product Image Label and Input -->
+						<h:outputLabel styleClass="form-label" for="productImage">
+							Product Image
+						</h:outputLabel>
+						<h:inputFile value="#" styleClass="form-control-file"
+							 id="productImage" />
+					</div>
+				
+				<!-- End of Content Row -->	
+				</div>
+				<br/>
+				
+				<h:commandButton value="Update" type="button" 
+					styleClass="btn btn-primary" />
+				
+			</h:form>
+		
+		<!-- End of Container -->
+		</div>
+		<br/>
+		
+		<!-- Footer -->
+		<ui:include src="/pages/templates/footer.xhtml"/>
+				
+		<h:outputScript library="js" name="jquery.min.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="bootstrap.min.js" />
+		
+    </h:body>
+    
+</html>

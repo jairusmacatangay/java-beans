@@ -1,0 +1,105 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+    	<title>Login - Java Beans</title>
+    	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+    </h:head>
+    <h:body>
+    
+    	<!--Navigation Bar-->
+		<ui:include src="/pages/templates/navbar-guest.xhtml" />
+		<br/>
+    
+    	<!-- Container -->
+    	<div class="container">
+			
+			<!-- Content Row -->
+			<div class="row">
+				
+				<!-- Empty Left Column -->
+				<div class="col-3"></div>
+				
+				<!-- Login Column -->
+				<div class="col-6">
+				
+					<div class="card shadow">
+						<div class="card-body">
+						
+							<div class="text-center">
+								<h1>Welcome to Java Beans!</h1>
+								<p>
+									Don't have an account? Register 
+									<a href="#">here.</a>
+								</p>
+							</div>
+							<br />
+							
+							<!-- Content Row -->
+							<div class="row">
+							
+								<div class="col-2"></div>
+								
+								<div class="col-8">
+									<h:form>
+								
+										<!-- Email Label and Input -->
+										<h:outputLabel styleClass="form-label" 
+											for="email">
+											Email
+										</h:outputLabel>
+										<h:inputText styleClass="form-control" 
+											id="email" value=""/>					
+										<br />
+										
+										<!-- Password Label and Input -->    			
+										<h:outputLabel styleClass="form-label" 
+											for="password">
+											Password
+										</h:outputLabel>
+										<h:inputSecret styleClass="form-control" 
+											id="password" value=""/>
+										<br />
+										
+										<h:commandButton value="Login" 
+											styleClass="btn btn-primary"/>
+											
+									</h:form>
+								</div>
+								
+								<div class="col-2"></div>
+							
+							<!-- End of Content Row -->
+							</div>
+							
+						<!-- End of Card Body -->	
+						</div>
+						
+					<!-- End of Card -->
+					</div>
+				
+				<!-- End of Login Column -->
+				</div>
+				
+				<!-- Empty Right Column -->
+				<div class="col-3"></div>
+			
+			<!-- End of Content Row -->
+			</div>
+			<br/>
+			
+		<!-- End of Container -->    
+	    </div>
+    	
+	    <!-- Footer -->
+		<ui:include src="/pages/templates/footer.xhtml"/>
+			
+		<h:outputScript library="js" name="jquery.min.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="bootstrap.min.js" />
+	
+    </h:body>
+    
+</html>

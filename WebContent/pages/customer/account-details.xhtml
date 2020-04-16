@@ -1,0 +1,158 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+    	<title>Acccount Details - Java Beans</title>
+	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    </h:head>
+    
+    <h:body>
+		
+    	<!--Navigation Bar-->
+		<ui:include src="/pages/templates/navbar-customer.xhtml" />
+		
+		<!-- Container -->
+		<div class="container">
+		<br/>
+		
+			<h2>Account Details</h2>
+			<br/>
+			
+			<!-- Content Row -->
+			<div class="row">
+			
+				<div class="col-6">
+				
+					<div class="card">
+					
+						<div class="card-header">
+							Personal Information <a href="#">Edit</a>
+						</div>
+						
+						<div class="card-body">
+						
+							<div class="row">
+								<div class="col-4">Jairus</div>
+								<div class="col-4">Hernandez</div>
+								<div class="col-4">Macatangay</div>
+							</div>
+							<br/>
+							
+							<div class="row">
+								<div class="col-4">jai.macatangay@gmail.com</div>
+								<div class="col-4">(043) 723-5330</div>
+								<div class="col-4">+63-817-817-2281</div>
+							</div>
+							<br/>
+							
+							<div class="row">
+								<div class="col-4">10/11/1996</div>
+								<div class="col-4">Male</div>
+								<div class="col-4"></div>
+							</div>
+							
+						<!-- End of Card Body -->
+						</div>
+						
+					<!-- End of Card -->
+					</div>
+					<br/>
+					
+				</div>
+				
+				<div class="col-6">
+					
+					<div class="card">
+					
+						<div class="card-header">
+							Address <a href="#">Edit</a>
+						</div>
+						
+						<div class="card-body">
+						
+							<div class="row">
+								<div class="col-4">Bldg No.</div>
+								<div class="col-4">Street</div>
+								<div class="col-4">City</div>
+							</div>
+							<br/>
+							
+							<div class="row">
+								<div class="col-4">Brgy</div>
+								<div class="col-4">Province</div>
+								<div class="col-4">Zip Code</div>
+							</div>
+													
+						<!-- End of Card Body -->
+						</div>
+						
+					<!-- End of Card -->
+					</div>
+					
+				</div>
+			
+			<!-- End of Content Row -->	
+			</div>
+			<br/>
+			
+			<h2>Transanction History</h2>
+			<br/>
+			
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Order No.</th>
+						<th>Product Title</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Date</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>6678</td>
+						<td>French Press</td>
+						<td>Php 1500</td>
+						<td>1</td>
+						<td>04/16/2020</td>
+					</tr>
+					<tr>
+						<td>6901</td>
+						<td>Coffee Filter</td>
+						<td>Php 250</td>
+						<td>4</td>
+						<td>04/16/2020</td>
+					</tr>
+					<tr>
+						<td>7011</td>
+						<td>Aeropress</td>
+						<td>Php 3500</td>
+						<td>1</td>
+						<td>04/16/2020</td>
+					</tr>
+					<tr>
+						<td>7511</td>
+						<td>Coffee Tumblr</td>
+						<td>Php 999</td>
+						<td>1</td>
+						<td>04/16/2020</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		<!-- End of Container -->	
+		</div>
+    	<br/>
+    	
+    	<!-- Footer -->
+		<ui:include src="/pages/templates/footer.xhtml"/>
+			
+		<h:outputScript library="js" name="jquery.min.js" />
+		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+		<h:outputScript library="js" name="bootstrap.min.js" />
+		
+    </h:body>
+    
+</html>
