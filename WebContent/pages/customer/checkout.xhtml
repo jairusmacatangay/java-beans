@@ -29,15 +29,10 @@
 		<!-- Content Row -->
 		<div class="row">
 		
-			<div class="col-sm-9">
-				<div class="row">
-					<div class="col-sm-4">
-						<h3>Customer Details</h3>
-					</div>
-					<div>
-						<a href="#" class="btn btn-primary">Edit</a>
-					</div>
-				</div>
+			<div class="col-9">
+				
+				<h3 class="d-inline">Customer Details</h3>
+				<a href="#" class="d-inline">Edit</a>
 				<hr/>
 				
 				<div class="row">
@@ -53,6 +48,10 @@
 						<label for="lastName">Last Name</label>
      					<input type="text" class="form-control" id="lastName" value="Doe" readonly="readonly"/>
 					</div>
+				</div>
+				<br/>
+				
+				<div class="row">
 					<div class="col-sm-4"> 
 						<label for="email">Email</label>
      					<input type="email" class="form-control" id="email" value="johndoe@example.com" readonly="readonly"/>
@@ -64,14 +63,9 @@
 					<div class="col-sm-4"> 
 					</div>
 				</div>
-				
 				<br/>
-				
-				<div class="row">
-					<div class="col-sm-4">
-						<h3>Address</h3>
-					</div>
-				</div>
+					
+				<h3>Address</h3>
 				<hr/>
 				
 				<div class="row">
@@ -87,6 +81,10 @@
 						<label for="city">City</label>
      					<input type="text" class="form-control" id="city" value="Batangas City"/>
 					</div>
+				</div>
+				<br/>
+				
+				<div class="row">
 					<div class="col-sm-4"> 
 						<label for="barangay">Barangay</label>
      					<input type="email" class="form-control" id="barangay" value="8"/>
@@ -102,7 +100,7 @@
 				</div>
 			</div>
 			
-			<div class="col-sm-3">
+			<div class="col-3">
 				<div class="card">
 					<div class="card-header text-center">Items</div>
 					<div class="card-body">
@@ -144,14 +142,10 @@
 		
 	<!-- End of Container -->
 	</div>
+	<br/>
 	
 	<!-- Footer -->
 	<ui:include src="/pages/templates/footer.xhtml" />
 	
 </h:body>
-<script>
-$(document).ready( function () {
-    $('#tblCheckout').DataTable();
-} );
-</script>
 </html>

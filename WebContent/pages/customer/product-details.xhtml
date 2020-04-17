@@ -24,64 +24,67 @@
 	
 	<!-- Container -->
 	<div class="container">
-	
-		<h1>Product Details</h1>
-		<hr/>
-		<br/>
+	<br/>
 		
 		<!-- Content Row -->
 		<div class="row">
 		
-			<div class="col-3">
+			<div class="col-6 pr-5">
 				<h:graphicImage library="img/placeholders" 
-					name="image-placeholder.jpg" styleClass="w-100" />
+					name="image-placeholder.jpg" styleClass="w-100"/>
 			</div>
 			
-			<div class="col-8">
-				<h3>Product Name</h3>
-				<h6>Category</h6>
+			<div class="col-6">
+			
+				<h1>Product Name</h1>
+				<p>Category</p>
+				<hr/>
+				
+				<!-- Content Row -->
 				<div class="row">
-					<div class="col-2 d-flex align-items-center">
-						<h6>Quantity</h6>
+				
+					<div class="col-4">
+						<h3>Php 1500</h3>
 					</div>
-					<div class="col-2">
-						<input type="number" id="quantity" value="1" min="1" 
-					max="100" class="form-control"/>
+					
+					<div class="col-4"></div>
+					
+					<div class="col-4">
+						<div class="form-group row">
+							<div class="col-2"></div>
+							<label for="quantity" class="col-3 col-form-label float-right">
+								Qty:
+							</label>
+							<div class="col-7">
+								<input type="number" id="quantity" value="1" 
+									min="1" max="100" class="form-control"/>
+							</div>
+						</div>
 					</div>
-					<div class="col-8"></div>
+					
+				<!-- End of Content Row -->	
 				</div>
-				<br/>
-				<a href="#" class="btn btn-primary">Add to Cart</a>
-				<a href="#" class="btn btn-primary">Checkout</a>
-			</div>
-			
-			<div class="col">
-				<h3 class="mr-auto">Price</h3>
+				<hr/>
+				
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+					sed do eiusmod tempor incididunt ut labore et dolore magna 
+					aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+					ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+					Duis aute irure dolor in reprehenderit in voluptate velit 
+					esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+					occaecat cupidatat non proident, sunt in culpa qui officia 
+					deserunt mollit anim id est laborum.
+				</p>
+				<hr/>
+				
+				<a href="#" class="btn btn-secondary">Add to Cart</a>
+				<a href="#" class="btn btn-outline-secondary">Checkout</a>
+				
 			</div>
 			
 		<!-- End of Content Row -->
 		</div>
-		<br/>
-		
-		<h2>Product Description</h2>	
-		<p class="text-justify" style="text-indent: 50px">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			Ut dignissim lectus sodales, tempor elit et, vulputate 
-			velit. Donec eget dolor a nisl imperdiet consectetur 
-			vitae eget purus. Donec placerat mauris et viverra 
-			sollicitudin. Vivamus lectus massa, tempus ac quam non, 
-			placerat ultricies lacus. Sed ultricies lectus sed massa 
-			eleifend, vitae imperdiet lacus hendrerit. Nulla 
-			tristique, felis vel laoreet venenatis, justo nibh 
-			viverra sem, non viverra erat erat vel augue. Donec est 
-			erat, semper et placerat vitae, feugiat ut augue. 
-			Nullam quis eros dapibus, porttitor enim ac, pretium 
-			eros. Nullam ac nisl ac nibh accumsan blandit. Nulla eu
-			nibh et orci gravida posuere vel ac metus. Phasellus 
-			pharetra rutrum justo et tristique. Donec in tincidunt 
-			nisl, a mattis massa. Mauris nec felis a lorem 
-			hendrerit pretium.
-		</p>
 		<br/>			
 		<hr/>
 		<br/>
@@ -90,7 +93,7 @@
 		<h:inputTextarea styleClass="form-control" id="message" value="" 
 			rows="3"/>
 		<br/>
-		<button type="submit" class="btn btn-primary float-left">Submit</button>		
+		<button type="submit" class="btn btn-secondary">Submit</button>		
 		<br/><br/>
 		<hr/>
 		
@@ -101,7 +104,7 @@
 		<!-- Content Row -->
 		<div class="row">
 		
-			<div class="col-2">
+			<div class="col-2 pl-5 pr-5">
 				<h:graphicImage library="img/placeholders" name="/profile.png" 
 					class="w-100"/>
 			</div>
@@ -130,7 +133,7 @@
 		<!-- Content Row -->
 		<div class="row">
 		
-			<div class="col-2">
+			<div class="col-2 pl-5 pr-5">
 				<h:graphicImage library="img/placeholders" name="/profile.png" 
 					class="w-100"/>
 			</div>
@@ -159,7 +162,7 @@
 		<!-- Content Row -->
 		<div class="row">
 		
-			<div class="col-2">
+			<div class="col-2 pl-5 pr-5">
 				<h:graphicImage library="img/placeholders" name="/profile.png" 
 					class="w-100"/>
 			</div>
