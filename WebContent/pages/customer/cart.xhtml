@@ -30,77 +30,109 @@
 		<div class="row">
 		
 			<div class="col-sm-9">
-				<table class="table table-hover" id="tblCart">
-				  <thead>
-				    <tr>
-				      <th>Item/s</th>
-				      <th>Price</th>
-				      <th>Qty</th>
-				      <th>Action</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr>
-				      <td>
-				      	<div class="row">
-					      	<div class="col">
-					      		<h:graphicImage library="img/placeholders" 
-					      			name="image-placeholder.jpg"
-					      			style="width:50%"/>
-					      	</div>
-					      	<div class="col">
-					      		<p>Product Title 1</p>
-					      	</div>
-				      	</div>
-				      </td>
-				      <td>Php 1000</td>
-				      <td><input type="number" value="1" min="0" max="100" style="margin-left:20px; text-align:center;"/></td>
-				      <td>
-				      	<button class="btn btn-danger">Delete</button>
-				      </td>
-				    </tr>
-				    
-				    <tr>
-				      <td>
-				      	<div class="row">
-					      	<div class="col">
-					      		<h:graphicImage library="img/placeholders" 
-					      			name="image-placeholder.jpg"
-					      			style="width:50%"/>
-					      	</div>
-					      	<div class="col">
-					      		<p>Product Title 2</p>
-					      	</div>
-				      	</div>
-				      </td>
-				      <td>Php 1234</td>
-				      <td><input type="number" value="1" min="0" max="100" style="margin-left:20px; text-align:center;"/></td>
-				      <td>
-				      	<button class="btn btn-danger">Delete</button>
-				      </td>
-				    </tr>
-				    
-				    <tr>
-				      <td>
-				      	<div class="row">
-					      	<div class="col">
-					      		<h:graphicImage library="img/placeholders" 
-					      			name="image-placeholder.jpg"
-					      			style="width:50%"/>
-					      	</div>
-					      	<div class="col">
-					      		<p>Product Title 3</p>
-					      	</div>
-				      	</div>
-				      </td>
-				      <td>Php 1293</td>
-				      <td><input type="number" value="1" min="0" max="100" style="margin-left:20px; text-align:center;"/></td>
-				      <td>
-				      	<button class="btn btn-danger">Delete</button>
-				      </td>
-				    </tr>
-				  </tbody>
-				</table>
+				
+				<div class="card mb-2">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-2">
+								<h:graphicImage library="img/placeholders" 
+									name="image-placeholder.jpg" class="w-100"/>
+							</div>
+							<div class="col-4">
+								<h6>Product Name</h6>
+								<p>
+									Category <br/>
+									Description
+								</p>
+							</div>
+							<div class="col-3">
+								<h6>Php 1500.00 </h6>
+								<div class="form-group row">
+									<label for="quantity" class="col-4 col-form-label float-right">
+										Qty:
+									</label>
+									<div class="col-6">
+										<input type="number" id="quantity" value="1" 
+											min="1" max="100" class="form-control"/>
+									</div>
+									<div class="col-2"></div>
+								</div>
+							</div>
+							<div class="col-3">
+								<button class="btn btn-outline-danger btn-block">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="card mb-2">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-2">
+								<h:graphicImage library="img/placeholders" 
+									name="image-placeholder.jpg" class="w-100"/>
+							</div>
+							<div class="col-4">
+								<h6>Product Name</h6>
+								<p>
+									Category <br/>
+									Description
+								</p>
+							</div>
+							<div class="col-3">
+								<h6>Php 1500.00 </h6>
+								<div class="form-group row">
+									<label for="quantity" class="col-4 col-form-label float-right">
+										Qty:
+									</label>
+									<div class="col-6">
+										<input type="number" id="quantity" value="1" 
+											min="1" max="100" class="form-control"/>
+									</div>
+									<div class="col-2"></div>
+								</div>
+							</div>
+							<div class="col-3">
+								<button class="btn btn-outline-danger btn-block">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="card">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-2">
+								<h:graphicImage library="img/placeholders" 
+									name="image-placeholder.jpg" class="w-100"/>
+							</div>
+							<div class="col-4">
+								<h6>Product Name</h6>
+								<p>
+									Category <br/>
+									Description
+								</p>
+							</div>
+							<div class="col-3">
+								<h6>Php 1500.00 </h6>
+								<div class="form-group row">
+									<label for="quantity" class="col-4 col-form-label float-right">
+										Qty:
+									</label>
+									<div class="col-6">
+										<input type="number" id="quantity" value="1" 
+											min="1" max="100" class="form-control"/>
+									</div>
+									<div class="col-2"></div>
+								</div>
+							</div>
+							<div class="col-3">
+								<button class="btn btn-outline-danger btn-block">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				   
 			</div>
 			
 			<div class="col-sm-3">
@@ -124,16 +156,12 @@
 		
 	<!-- End of Container -->	
 	</div>
+	<br/>
 	
 	<!-- Footer -->
 	<ui:include src="/pages/templates/footer.xhtml" />
 	
 </h:body>
-<script>
-$(document).ready( function () {
-    $('#tblCart').DataTable();
-} );
-</script>
 </html>
 
 
