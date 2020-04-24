@@ -6,6 +6,12 @@
     <h:head>
     	<title>Login - Java Beans</title>
     	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+    	
+    	<style>
+    		.error {
+    			color: red;
+    		}
+    	</style>
     </h:head>
     <h:body>
     
@@ -37,33 +43,34 @@
 							</div>
 							<br />
 							
+							<!-- alert for login failure -->
+							<div class="row justify-content-center">
+								<h:message for="submit" styleClass="error" />
+							</div>
+							
 							<!-- Content Row -->
 							<div class="row">
 							
 								<div class="col-2"></div>
 								
 								<div class="col-8">
-									<h:form>
+									<h:form id = "login">
 								
 										<!-- Email Label and Input -->
-										<h:outputLabel styleClass="form-label" 
-											for="email">
-											Email
-										</h:outputLabel>
-										<h:inputText styleClass="form-control" 
-											id="email" value=""/>					
+										<h:outputLabel styleClass="form-label" for="email">Email</h:outputLabel>
+										<h:inputText styleClass="form-control" id="email" value="#{users.email}"
+											required="true" requiredMessage="Email is required!"/>	
+										<h:message for="email" styleClass="error"/>				
 										<br />
 										
 										<!-- Password Label and Input -->    			
-										<h:outputLabel styleClass="form-label" 
-											for="password">
-											Password
-										</h:outputLabel>
-										<h:inputSecret styleClass="form-control" 
-											id="password" value=""/>
+										<h:outputLabel styleClass="form-label" for="password">Password</h:outputLabel>
+										<h:inputSecret styleClass="form-control" id="password" value="#{users.password}"
+											required="true" requiredMessage="Password is required!"/>
+										<h:message for="password" styleClass="error"/>
 										<br />
 										
-										<h:commandButton value="Login" 
+										<h:commandButton value="Login" id="submit" action="#{usersController.validateUser(users)}" 
 											styleClass="btn btn-primary"/>
 											
 									</h:form>

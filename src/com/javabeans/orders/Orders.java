@@ -1,5 +1,6 @@
 package com.javabeans.orders;
 
-public class Orders {
 
+public class Orders {
+	
 }
