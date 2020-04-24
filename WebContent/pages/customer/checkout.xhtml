@@ -2,8 +2,14 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{ordersController.loadCart}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadOrderSummary}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadUserDetails}"/>
+	</f:metadata>
 	<title>Java Beans | Checkout</title>
 
 	<h:outputStylesheet library="css" name="styles.css" />
@@ -37,28 +43,58 @@
 				
 				<div class="row">
 					<div class="col-sm-4"> 
-						<label for="firstName">First Name</label>
-     					<input type="text" class="form-control" id="firstName" value="John" readonly="readonly"/>
+						<!-- First Name Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="first_name">
+							First Name
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="first_name" value="#{users.first_name}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
-						<label for="middleName">Middle Name</label>
-     					<input type="text" class="form-control" id="middleName" value="Smith" readonly="readonly"/>
+						<!-- Middle Name Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="middle_name">
+							Middle Name
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="middle_name" value="#{users.middle_name}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
-						<label for="lastName">Last Name</label>
-     					<input type="text" class="form-control" id="lastName" value="Doe" readonly="readonly"/>
+						<!-- Last Name Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="last_name">
+							Last Name
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="last_name" value="#{users.last_name}"
+							 readonly="true"/>
 					</div>
 				</div>
 				<br/>
 				
 				<div class="row">
 					<div class="col-sm-4"> 
-						<label for="email">Email</label>
-     					<input type="email" class="form-control" id="email" value="johndoe@example.com" readonly="readonly"/>
+						<!-- Email Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="email">
+							Email
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="email" value="#{users.email}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
-						<label for="mobileNo">Mobile No.</label>
-     					<input type="text" class="form-control" id="mobileNo" value="+63-917-817-2282" readonly="readonly"/>
+						<!-- Mobile No Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="mobile_no">
+							Mobile No
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="mobile_no" value="#{users.mobile_no}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
 					</div>
@@ -70,32 +106,68 @@
 				
 				<div class="row">
 					<div class="col-sm-4"> 
-						<label for="houseNo">Bldg/House No.</label>
-     					<input type="text" class="form-control" id="houseNo" value="13"/>
+						<!-- Bldg/House No Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="bldg_no">
+							Bldg/House No.
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="bldg_no" value="#{users.bldg_no}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
-						<label for="street">Street</label>
-     					<input type="text" class="form-control" id="street" value="P. Dandan St."/>
+						<!-- Street Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="street">
+							Street
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="street" value="#{users.street}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
-						<label for="city">City</label>
-     					<input type="text" class="form-control" id="city" value="Batangas City"/>
+						<!-- City Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="city">
+							City
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="city" value="#{users.city}"
+							 readonly="true"/>
 					</div>
 				</div>
 				<br/>
 				
 				<div class="row">
 					<div class="col-sm-4"> 
-						<label for="barangay">Barangay</label>
-     					<input type="email" class="form-control" id="barangay" value="8"/>
+						<!-- Barangay Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="barangay">
+							Barangay
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="barangay" value="#{users.barangay}"
+							 readonly="true"/>
 					</div>
 					<div class="col-sm-4"> 
-						<label for="province">Province</label>
-     					<input type="text" class="form-control" id="province" value="Batangas"/>
+						<!-- Province Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="province">
+							Province
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="province" value="#{users.province}"
+							 readonly="true"/>
 					</div>
-					<div class="col-sm-4"> 
-						<label for="zipCode">Zip Code</label>
-     					<input type="text" class="form-control" id="zipCode" value="4200"/>
+					<div class="col-sm-4">
+					 	<!-- Zip Code Label and Input -->
+						<h:outputLabel styleClass="form-label" 
+							for="zip_code">
+							Zip Code
+						</h:outputLabel>
+						<h:inputText styleClass="form-control" 
+							id="zip_code" value="#{users.zip_code}"
+							 readonly="true"/>
 					</div>
 				</div>
 			</div>
@@ -104,34 +176,38 @@
 				<div class="card">
 					<div class="card-header text-center">Items</div>
 					<div class="card-body">
-						<p>
-							Product Name <span class="float-right">Qty: 1</span>
-						</p>
-						<p>Php 1450.00</p>
-						
+						<!-- UI Repeat -->
 						<hr/>
-						
-						<p>
-							Product Name <span class="float-right">Qty: 2</span>
-						</p>
-						<p>Php 450.00</p>
-						
+						<ui:repeat var="cart" value="#{ordersController.cart}">
+							<div class="row">
+								<div class="col-8"><h6>#{cart.product_name}</h6></div>
+								<div class="col-4">Qty: #{cart.quantity}</div>
+							</div>
+							<p>Php #{cart.price}</p>
+							<hr />
+						<!-- End of UI Repeat -->
+						</ui:repeat>
+					<!-- End of Card Body -->
 					</div>
 					<div class="card-header text-center">Order Summary</div>
 					<div class="card-body">
 						<p>
-							Subtotal <span class="float-right">---</span>
+							Gross <span class="float-right">#{orders.gross}</span>
 						</p>
 						<p>
-							VAT <span class="float-right">---</span>
+							VAT <span class="float-right">#{orders.vat}</span>
 						</p>
 						<p>
-							Shipping Fee <span class="float-right">---</span>
+							Shipping Fee <span class="float-right">#{orders.shippingFee}</span>
 						</p>
 						<hr/>
 						<p>
-							Total <span class="float-right">---</span>
+							Total <span class="float-right">#{orders.overallTotal}</span>
 						</p>
+						<h:form>
+							<h:commandLink value="Place Order" styleClass="btn btn-success btn-block"
+								action="#{ordersController.placeOrder()}"/>
+						</h:form>
 						<button class="btn btn-success btn-block">Place Order</button>
 					</div>
 				</div>
