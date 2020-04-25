@@ -46,7 +46,10 @@
 								First Name
 							</h:outputLabel>
 							<h:inputText styleClass="form-control" 
-								id="firstName" value=""/>
+								id="firstName" required="true" 
+								requiredMessage="First Name is required."
+								value="#{inquiries.first_name}"/>
+							<h:message for="firstName" styleClass="text-danger" />
 						</div>
 						
 						<!-- Last Name Label and Input -->
@@ -56,7 +59,10 @@
 								Last Name
 							</h:outputLabel>
 							<h:inputText styleClass="form-control" 
-								id="lastName" value=""/>
+								id="lastName" required="true"
+								requiredMessage="Last Name is required."
+								value="#{inquiries.last_name}" />
+							<h:message for="lastName" styleClass="text-danger" />
 						</div>
 					
 					<!-- End of Content Row -->	
@@ -67,7 +73,13 @@
 					<h:outputLabel styleClass="form-label" for="email">
 						Email
 					</h:outputLabel>
-					<h:inputText styleClass="form-control" id="email" value=""/>
+					<h:inputText styleClass="form-control" id="email" 
+						required="true" requiredMessage="Email is required."
+						validatorMessage="Format: johndoe@example.com"
+						value="#{inquiries.email}">
+						<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+					</h:inputText>
+					<h:message for="email" styleClass="text-danger" />
 					<br/>
 					
 					<!-- Message Label and Text Area -->
@@ -75,11 +87,15 @@
 						Message
 					</h:outputLabel>
 					<h:inputTextarea styleClass="form-control" id="message" 
-						value="" rows="5"/>
+						rows="5" required="true" 
+						requiredMessage="Message is required."
+						value="#{inquiries.message}" />
+					<h:message for="message" styleClass="text-danger" />
 					<br/>
 					
 					<h:commandButton value="Send Message" 
-						styleClass="btn btn-primary"/>
+						styleClass="btn btn-primary" 
+						action="#{inquiriesController.sendInquiry(inquiries)}"/>
 	
 				<!-- End Form -->
 				</h:form>
