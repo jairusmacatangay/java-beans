@@ -14,6 +14,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.javabeans.users.Users;
+
 public class OrdersDBUtil {
 
 	private static OrdersDBUtil instance;
@@ -38,11 +40,10 @@ public class OrdersDBUtil {
 		return theDataSource;
 	}
 			
-	public List<Orders> getCart() throws Exception {
+	public List<Orders> getCart(Users theUser) throws Exception {
 		List<Orders> cart = new ArrayList<>();
-
 		Connection myConn = null;
-		Statement myStmt = null;
+		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
 
 		try {
@@ -52,22 +53,23 @@ public class OrdersDBUtil {
 					+ " o.quantity, o.total_amount, p.product_category, "
 					+ "p.product_name, p.price, p.product_image FROM "
 					+ "order_details o INNER JOIN products p ON o.product_id = "
-					+ "p.product_id WHERE o.order_id = 0 AND o.user_id = 1";
+					+ "p.product_id WHERE o.order_id = 0 AND o.user_id = ?";
 
-			myStmt = myConn.createStatement();
-			myRs = myStmt.executeQuery(sql);
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setInt(1, theUser.getUser_id());
+			myRs = myStmt.executeQuery();
 
 			while (myRs.next()) {
-				int ref_no = myRs.getInt("ref_no");
-				int order_id = myRs.getInt("order_id");
-				int product_id = myRs.getInt("product_id");
-				int user_id = myRs.getInt("user_id");
-				int quantity = myRs.getInt("quantity");
-				float total_amount = myRs.getFloat("total_amount");
-				String product_category = myRs.getString("product_category");
-				String product_name = myRs.getString("product_name");
-				float price = myRs.getFloat("price");
-				String product_image = myRs.getString("product_image");
+				int ref_no = myRs.getInt(1);
+				int order_id = myRs.getInt(2);
+				int product_id = myRs.getInt(3);
+				int user_id = myRs.getInt(4);
+				int quantity = myRs.getInt(5);
+				float total_amount = myRs.getFloat(6);
+				String product_category = myRs.getString(7);
+				String product_name = myRs.getString(8);
+				float price = myRs.getFloat(9);
+				String product_image = myRs.getString(10);
 
 				Orders tempOrder = new Orders(ref_no, order_id, product_id, user_id, quantity, total_amount,
 						product_category, product_name, price, product_image);
@@ -82,17 +84,18 @@ public class OrdersDBUtil {
 		}
 	}
 	
-	public Orders getOrderSummValues() throws Exception {
+	public Orders getOrderSummValues(Users theUser) throws Exception {
 		Connection myConn = null;
-		Statement myStmt = null;
+		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
 		
 		try {
 			myConn = getConnection();
-			String sql = "SELECT SUM(total_amount) FROM order_details WHERE order_id = 0 and user_id = 1";
+			String sql = "SELECT SUM(total_amount) FROM order_details WHERE order_id = 0 and user_id = ?";
 			
-			myStmt = myConn.createStatement();
-			myRs = myStmt.executeQuery(sql);
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setInt(1, theUser.getUser_id());
+			myRs = myStmt.executeQuery();
 			
 			Orders order = null;
 			
@@ -128,20 +131,21 @@ public class OrdersDBUtil {
 		}
 	}	
 	
-	public Users getUserDetails() throws Exception {
+	public Orders_Users getUserDetails(Users theUser) throws Exception {
 		Connection myConn = null;
-		Statement myStmt = null;
+		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
 		
 		try {
 			myConn = getConnection();
 			String sql = "SELECT first_name, middle_name, last_name, email, "
 					+ "mobile_no, bldg_no, street, city, barangay, province, "
-					+ "zip_code FROM users WHERE user_id = 1";
-			myStmt = myConn.createStatement();
-			myRs = myStmt.executeQuery(sql);
+					+ "zip_code FROM users WHERE user_id = ?";
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setInt(1, theUser.getUser_id());
+			myRs = myStmt.executeQuery();
 			
-			Users user = null;
+			Orders_Users user = null;
 			
 			if (myRs.next()) {
 				String first_name = myRs.getString("first_name");
@@ -156,7 +160,7 @@ public class OrdersDBUtil {
 				String province = myRs.getString("province");
 				String zip_code = myRs.getString("zip_code");
 				
-				user = new Users(first_name, middle_name, last_name, email, 
+				user = new Orders_Users(first_name, middle_name, last_name, email, 
 						mobile_no, bldg_no, street, city, barangay, province, 
 						zip_code);
 			} else {
@@ -208,7 +212,7 @@ public class OrdersDBUtil {
 		return order_id;
 	}
 	
-	public void updateCart(int order_id) throws Exception {
+	public void updateCart(int order_id, Users theUser) throws Exception {
 		Connection conn = null;
 		PreparedStatement prepStmt = null;
 		
@@ -218,19 +222,19 @@ public class OrdersDBUtil {
 			String sql = "UPDATE order_details SET order_id = ? WHERE order_id = 0 AND user_id = ?";
 			prepStmt = conn.prepareStatement(sql);
 			prepStmt.setInt(1, order_id);
-			prepStmt.setInt(2, 1);
+			prepStmt.setInt(2, theUser.getUser_id());
 			prepStmt.execute();
 		} finally {
 			close(conn, prepStmt);
 		}
 	}
 	
-	public void placeOrder() throws Exception {
+	public void placeOrder(Users theUser) throws Exception {
 		int order_id = 0;
 		
 		addOrder();
 		order_id = getRecentOrderID();
-		updateCart(order_id);
+		updateCart(order_id, theUser);
 	}	
 	
 	private static Connection getConnection() throws Exception {

@@ -10,6 +10,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import com.javabeans.users.Users;
+
 @SessionScoped
 @ManagedBean
 public class OrdersController {
@@ -26,19 +28,19 @@ public class OrdersController {
 		return cart;
 	}
 	
-	public void loadCart() {
+	public void loadCart(Users theUser) {
 		cart.clear();
 
 		try {
-			cart = ordersDBUtil.getCart();
+			cart = ordersDBUtil.getCart(theUser);
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
 	}
 	
-	public void loadOrderSummary() {
+	public void loadOrderSummary(Users theUser) {
 		try {
-			Orders order = ordersDBUtil.getOrderSummValues();
+			Orders order = ordersDBUtil.getOrderSummValues(theUser);
 			
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			Map<String, Object> requestMap = externalContext.getRequestMap();
@@ -48,9 +50,9 @@ public class OrdersController {
 		}
 	}
 	
-	public void loadUserDetails() {
+	public void loadUserDetails(Users theUser) {
 		try {
-			Users user = ordersDBUtil.getUserDetails();
+			Orders_Users user = ordersDBUtil.getUserDetails(theUser);
 			
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			Map<String, Object> requestMap = externalContext.getRequestMap();
@@ -74,9 +76,9 @@ public class OrdersController {
 		return "checkout.xhtml";
 	}
 	
-	public String placeOrder() {
+	public String placeOrder(Users theUser) {
 		try {
-			ordersDBUtil.placeOrder();
+			ordersDBUtil.placeOrder(theUser);
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 			return null;
