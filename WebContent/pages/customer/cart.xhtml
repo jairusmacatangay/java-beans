@@ -6,8 +6,8 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<f:metadata>
-		<f:event type="preRenderView" listener="#{ordersController.loadCart}"/>
-		<f:event type="preRenderView" listener="#{ordersController.loadOrderSummary}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadCart(users)}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadOrderSummary(users)}"/>
 	</f:metadata>
 
 	<title>Java Beans | Cart</title>
