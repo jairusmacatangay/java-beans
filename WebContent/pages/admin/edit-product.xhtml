@@ -6,6 +6,12 @@
     <h:head>
     	<title>Add Product - Java Beans</title>
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+	    <style>
+	    	.error
+	    	{
+	    		color: red;
+	    	}
+	    </style>
     </h:head>
     
     <h:body>
@@ -21,6 +27,7 @@
 			<br/>
 			
 			<h:form>
+				<h:messages styleClass="error" />
 				
 				<!-- Content Row -->
 				<div class="row">
@@ -32,24 +39,28 @@
 							for="productName">
 							Product Name
 						</h:outputLabel>
-						<h:inputText id="productName" value="" 
-							styleClass="form-control"/>
+						<h:inputText id="name" value="#{product.name}" styleClass="form-control" 
+								required="true" requiredMessage="Name is required." />
 						<br/>
 						
 						<!-- Category Label and Input -->
 						<h:outputLabel styleClass="form-label" for="category">
 							Category
 						</h:outputLabel>
-						<h:inputText id="category" value="" 
-							styleClass="form-control"/> 
 						<br/>
+						<h:selectOneMenu id="category" value="#{product.category}">
+							<f:selectItem itemValue="Coffee" itemLabel="Coffee" />
+							<f:selectItem itemValue="Equipment" itemLabel="Equipment" />
+							<f:selectItem itemValue="Drinkware" itemLabel="Drinkware" />
+						</h:selectOneMenu> 
+						<br/><br/>
 						
 						<!-- Price Label and Input -->
 						<h:outputLabel styleClass="form-label" for="price">
 							Price
 						</h:outputLabel>
-						<h:inputText id="price" value="" 
-							styleClass="form-control"/>
+						<h:inputText id="price" value="#{product.price}" styleClass="form-control" step="0.1"
+								required="true" requiredMessage="Price is required." />
 							
 					</div>
 					
@@ -59,16 +70,12 @@
 						<h:outputLabel styleClass="form-label" for="description">
 							Description
 						</h:outputLabel>
-						<h:inputTextarea styleClass="form-control" rows="5" 
-							id="description" value="" />
+						<h:inputTextarea styleClass="form-control" rows="5" id="description" value="#{products.description}" 
+								required="true" requiredMessage="Description is required." />
 						<br/>
 						
 						<!-- Product Image Label and Input -->
-						<h:outputLabel styleClass="form-label" for="productImage">
-							Product Image
-						</h:outputLabel>
-						<h:inputFile value="#" styleClass="form-control-file"
-							 id="productImage" />
+
 					</div>
 				
 				<!-- End of Content Row -->	
@@ -77,7 +84,7 @@
 				
 				<h:commandButton value="Update" type="button" 
 					styleClass="btn btn-primary" />
-				
+		
 			</h:form>
 		
 		<!-- End of Container -->
