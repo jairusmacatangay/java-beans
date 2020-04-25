@@ -4,6 +4,12 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{productsController.loadEquipment}"/>
+		<f:event type="preRenderView" listener="#{productsController.loadCoffee}"/>
+		<f:event type="preRenderView" listener="#{productsController.loadDrinkware}"/>
+	</f:metadata>
+
 	<title>Home - Java Beans</title>
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 </h:head>
@@ -80,46 +86,20 @@
 		<h2>Coffee</h2>
 		<hr />
 		<div class="row">
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
+			<!-- UI Repeat -->
+			<ui:repeat var="coffee" value="#{productsController.coffee}">
+				<div class="col-3">
+					<div class="card shadow">
+						<h:graphicImage library="img/products_img" 
+							name="#{coffee.product_image}" styleClass="card-img-top border-bottom"/>
+						<div class="card-body">
+							<h6>#{coffee.product_name}</h6>
+							<p>Php #{coffee.price}</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
+			<!-- End of UI Repeat -->
+			</ui:repeat>
 		</div>
 		<br/>
 		
@@ -127,46 +107,20 @@
 		<h2>Equipment</h2>
 		<hr />
 		<div class="row">
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
+			<!-- UI Repeat -->
+			<ui:repeat var="equipment" value="#{productsController.equipment}">
+				<div class="col-3">
+					<div class="card shadow">
+						<h:graphicImage library="img/products_img" 
+							name="#{equipment.product_image}" styleClass="card-img-top border-bottom"/>
+						<div class="card-body">
+							<h6>#{equipment.product_name}</h6>
+							<p>Php #{equipment.price}</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
+			<!-- End of UI Repeat -->
+			</ui:repeat>
 		</div>
 		<br/>
 	
@@ -174,46 +128,20 @@
 		<h2>Drinkware</h2>
 		<hr />
 		<div class="row">
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
+			<!-- UI Repeat -->
+			<ui:repeat var="drinkware" value="#{productsController.drinkware}">
+				<div class="col-3">
+					<div class="card shadow">
+						<h:graphicImage library="img/products_img" 
+							name="#{drinkware.product_image}" styleClass="card-img-top border-bottom"/>
+						<div class="card-body">
+							<h6>#{drinkware.product_name}</h6>
+							<p>Php #{drinkware.price}</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-3">
-				<div class="card">
-					<h:graphicImage library="img/placeholders" 
-						name="image-placeholder.jpg" styleClass="card-img-top"/>
-					<div class="card-body">
-						<h6>Product Name</h6>
-						<p>Price</p>
-					</div>
-				</div>
-			</div>
+			<!-- End of UI Repeat -->
+			</ui:repeat>
 		</div>
 		<br/>
 		
