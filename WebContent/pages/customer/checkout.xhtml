@@ -6,9 +6,9 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<f:metadata>
-		<f:event type="preRenderView" listener="#{ordersController.loadCart}"/>
-		<f:event type="preRenderView" listener="#{ordersController.loadOrderSummary}"/>
-		<f:event type="preRenderView" listener="#{ordersController.loadUserDetails}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadCart(users)}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadOrderSummary(users)}"/>
+		<f:event type="preRenderView" listener="#{ordersController.loadUserDetails(users)}"/>
 	</f:metadata>
 	<title>Java Beans | Checkout</title>
 
@@ -36,9 +36,11 @@
 		<div class="row">
 		
 			<div class="col-9">
-				
-				<h3 class="d-inline">Customer Details</h3>
-				<a href="#" class="d-inline">Edit</a>
+				<h:form>
+					<h3 class="d-inline">Customer Details</h3>
+					<h:commandLink value="Edit" styleClass="d-inline ml-2" 
+						action="#{usersController.editAccountDetailsForCheckout(users)}" />
+				</h:form>
 				<hr/>
 				
 				<div class="row">
@@ -206,7 +208,7 @@
 						</p>
 						<h:form>
 							<h:commandLink value="Place Order" styleClass="btn btn-success btn-block"
-								action="#{ordersController.placeOrder()}"/>
+								action="#{ordersController.placeOrder(users)}"/>
 						</h:form>
 					</div>
 				</div>
