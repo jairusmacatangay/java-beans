@@ -43,10 +43,12 @@
 				          User's Account
 				    </a>
 				    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				    	<a class="dropdown-item" href="account-details.xhtml">
-				    		Manage Account
-				    	</a>
-				        <a class="dropdown-item" href="#">Logout</a>
+				    <h:form>
+				    	<div class="row justify-content-center">
+					    	<h:commandLink value="Manage Account" action="#{usersController.accountDetails(users)}" />
+					        <a class="dropdown-item" href="#">Logout</a>
+				    	</div>
+				    </h:form>
 				    </div>
 				</li>
 		    </ul>
