@@ -4,7 +4,7 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <h:head>
-    	<title>Acccount Details - Java Beans</title>
+    	<title>Account Details - Java Beans</title>
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
     </h:head>
     
@@ -17,9 +17,10 @@
 		<div class="container">
 		<br/>
 		
-			<h2 class="d-inline">Account Details</h2> 
-			<a href="#" class="d-inline">Edit</a>
-			<br/><br/>
+			<h:form>
+				<h2 class="d-inline">Account Details</h2> 
+				<h:commandLink value="Edit" styleClass="d-inline ml-2" action="#{usersController.editAccountDetails(users)}" />
+			</h:form>
 			
 			<!-- Content Row -->
 			<div class="row">
@@ -29,28 +30,52 @@
 					<div class="card">
 					
 						<div class="card-header">
-							Personal Information
+							<b>Personal Information</b> 
 						</div>
 						
 						<div class="card-body">
 						
 							<div class="row">
-								<div class="col-4">John</div>
-								<div class="col-4">Smith</div>
-								<div class="col-4">Doe</div>
+								<div class="col-4">
+									<b>First Name</b><br/>
+									#{users.first_name}
+								</div>
+								<div class="col-4">
+									<b>Middle Name</b><br/>
+									#{users.middle_name}
+								</div>
+								<div class="col-4">
+									<b>Last Name</b><br/>
+									#{users.last_name}
+								</div>
 							</div>
 							<br/>
 							
 							<div class="row">
-								<div class="col-4">johndoe@example.com</div>
-								<div class="col-4">(043) 723-5330</div>
-								<div class="col-4">+63-917-817-2282</div>
+								<div class="col-4">
+									<b>Email</b><br/>
+									#{users.email}
+								</div>
+								<div class="col-4">
+									<b>Telephone No</b><br/>
+									#{users.telephone_no}
+								</div>
+								<div class="col-4">
+									<b>Mobile No</b><br/>
+									#{users.mobile_no}
+								</div>
 							</div>
 							<br/>
 							
 							<div class="row">
-								<div class="col-4">04/16/2000</div>
-								<div class="col-4">Male</div>
+								<div class="col-4">
+									<b>Birthday</b><br/>
+									#{users.DOB}
+								</div>
+								<div class="col-4">
+									<b>Gender</b><br/>
+									#{users.gender}
+								</div>
 								<div class="col-4"></div>
 							</div>
 							
@@ -68,22 +93,40 @@
 					<div class="card">
 					
 						<div class="card-header">
-							Address
+							<b>Address</b>
 						</div>
 						
 						<div class="card-body">
 						
 							<div class="row">
-								<div class="col-4">Bldg No.</div>
-								<div class="col-4">Street</div>
-								<div class="col-4">City</div>
+								<div class="col-4">
+									<b>Bldg/House No</b><br/>
+									#{users.bldg_no}
+								</div>
+								<div class="col-4">
+									<b>Street</b><br/>
+									#{users.street}
+								</div>
+								<div class="col-4">
+									<b>City</b><br/>
+									#{users.city}
+								</div>
 							</div>
 							<br/>
 							
 							<div class="row">
-								<div class="col-4">Brgy</div>
-								<div class="col-4">Province</div>
-								<div class="col-4">Zip Code</div>
+								<div class="col-4">
+									<b>Barangay</b><br/>
+									#{users.barangay}
+								</div>
+								<div class="col-4">
+									<b>Province</b><br/>
+									#{users.province}
+								</div>
+								<div class="col-4">
+									<b>Zip Code</b><br/>
+									#{users.zip_code}
+								</div>
 							</div>
 													
 						<!-- End of Card Body -->
@@ -97,52 +140,7 @@
 			<!-- End of Content Row -->	
 			</div>
 			<br/>
-			
-			<h2>Transanction History</h2>
-			<br/>
-			
-			<table class="table table-striped">
-				<thead class="thead-dark">
-					<tr>
-						<th>Order No.</th>
-						<th>Product Title</th>
-						<th>Price</th>
-						<th>Quantity</th>
-						<th>Date</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>6678</td>
-						<td>French Press</td>
-						<td>Php 1500</td>
-						<td>1</td>
-						<td>04/16/2020</td>
-					</tr>
-					<tr>
-						<td>6901</td>
-						<td>Coffee Filter</td>
-						<td>Php 250</td>
-						<td>4</td>
-						<td>04/16/2020</td>
-					</tr>
-					<tr>
-						<td>7011</td>
-						<td>Aeropress</td>
-						<td>Php 3500</td>
-						<td>1</td>
-						<td>04/16/2020</td>
-					</tr>
-					<tr>
-						<td>7511</td>
-						<td>Coffee Tumblr</td>
-						<td>Php 999</td>
-						<td>1</td>
-						<td>04/16/2020</td>
-					</tr>
-				</tbody>
-			</table>
-			
+						
 		<!-- End of Container -->	
 		</div>
     	<br/>

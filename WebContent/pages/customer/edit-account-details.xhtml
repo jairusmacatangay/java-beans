@@ -88,7 +88,7 @@
 							<h:outputLabel styleClass="form-label" for="dob">Date of Birth</h:outputLabel>
 							<h:inputText id="dob" value="#{users.DOB}" styleClass="form-control datepicker"
 								required="true" requiredMessage="Date of Birth is required">
-								<f:convertDateTime type="date" pattern="dd/MM/yy"/>
+								<f:convertDateTime type="date" pattern="yyyy-MM-dd"/>
 							</h:inputText>
 							<h:message for="dob" styleClass="error"/>
 						</div>
@@ -197,7 +197,7 @@
 		<script>
 		  $( function() {
 		    $( ".datepicker" ).datepicker({
-		    	dateFormat: 'dd/mm/yy',
+		    	dateFormat: 'yy-mm-dd',
 		    	changeMonth: true,
 		        changeYear: true,
 		        yearRange: '1930:2020'
