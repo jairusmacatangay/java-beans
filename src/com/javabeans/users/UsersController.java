@@ -49,7 +49,8 @@ public class UsersController {
 		theUser = usersDBUtil.validateUser(theUser);
 		
 		if(theUser != null) {
-			return "/pages/customer/home-page";
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_id", theUser.getUser_id());
+			return "/pages/customer/home-page?faces-redirect=true";
 		} else {
 			FacesContext.getCurrentInstance().addMessage("login:submit", new FacesMessage("Incorrect Email and Password!"));
 			return "login";
