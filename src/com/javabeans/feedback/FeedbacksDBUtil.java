@@ -51,7 +51,7 @@ public class FeedbacksDBUtil {
 					+ "FROM feedbacks f "
 					+ "INNER JOIN users u ON u.user_id = f.user_id "
 					+ "INNER JOIN products p ON p.product_id = f.product_id "
-					+ "WHERE p.product_id = ?";
+					+ "WHERE p.product_id = ? ORDER BY date_created DESC";
 			
 			myStmt = myConn.prepareStatement(sql);
 			myStmt.setInt(1, product_id);
