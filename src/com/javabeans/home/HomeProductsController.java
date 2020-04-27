@@ -10,20 +10,20 @@ import javax.faces.context.FacesContext;
 
 @SessionScoped
 @ManagedBean
-public class ProductsController {
-	private ProductsDBUtil productsDBUtil;
-	private List<Products> equipment;
-	private List<Products> coffee;
-	private List<Products> drinkware;
+public class HomeProductsController {
+	private HomeProductsDBUtil productsDBUtil;
+	private List<HomeProducts> equipment;
+	private List<HomeProducts> coffee;
+	private List<HomeProducts> drinkware;
 		
-	public ProductsController() throws Exception {
+	public HomeProductsController() throws Exception {
 		equipment = new ArrayList<>();
 		coffee = new ArrayList<>();
 		drinkware = new ArrayList<>();
-		productsDBUtil = ProductsDBUtil.getInstance();
+		productsDBUtil = HomeProductsDBUtil.getInstance();
 	}
 	
-	public List<Products> getEquipment() {
+	public List<HomeProducts> getEquipment() {
 		return equipment;
 	}
 	
@@ -36,7 +36,7 @@ public class ProductsController {
 		}
 	}
 	
-	public List<Products> getCoffee() {
+	public List<HomeProducts> getCoffee() {
 		return coffee;
 	}
 	
@@ -49,7 +49,7 @@ public class ProductsController {
 		}
 	}
 	
-	public List<Products> getDrinkware() {
+	public List<HomeProducts> getDrinkware() {
 		return drinkware;
 	}
 	

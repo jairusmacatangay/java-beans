@@ -11,19 +11,19 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class ProductsDBUtil {
-	private static ProductsDBUtil instance;
+public class HomeProductsDBUtil {
+	private static HomeProductsDBUtil instance;
 	private static DataSource dataSource;
 	private String jndiName = "java:comp/env/jdbc/java_beans_db";
 	
-	public static ProductsDBUtil getInstance() throws Exception {
+	public static HomeProductsDBUtil getInstance() throws Exception {
 		if (instance == null) {
-			instance = new ProductsDBUtil();
+			instance = new HomeProductsDBUtil();
 		}
 		return instance;
 	}
 	
-	private ProductsDBUtil() throws Exception {
+	private HomeProductsDBUtil() throws Exception {
 		dataSource = getDataSource();
 	}
 	
@@ -33,8 +33,8 @@ public class ProductsDBUtil {
 		return theDataSource;
 	}
 	
-	public List<Products> getEquipment() throws Exception {
-		List<Products> equipment = new ArrayList<>();
+	public List<HomeProducts> getEquipment() throws Exception {
+		List<HomeProducts> equipment = new ArrayList<>();
 		Connection myConn = null;
 		Statement myStmt = null;
 		ResultSet myRs = null;
@@ -50,7 +50,7 @@ public class ProductsDBUtil {
 				String product_name = myRs.getString("product_name");
 				float price = myRs.getFloat("price");
 				String product_image = myRs.getString("product_image");
-				Products tempEquipment = new Products(product_name, price, product_image);
+				HomeProducts tempEquipment = new HomeProducts(product_name, price, product_image);
 				equipment.add(tempEquipment);
 			}
 			return equipment;
@@ -59,8 +59,8 @@ public class ProductsDBUtil {
 		}
 	}
 	
-	public List<Products> getCoffee() throws Exception {
-		List<Products> coffee = new ArrayList<>();
+	public List<HomeProducts> getCoffee() throws Exception {
+		List<HomeProducts> coffee = new ArrayList<>();
 		Connection myConn = null;
 		Statement myStmt = null;
 		ResultSet myRs = null;
@@ -76,7 +76,7 @@ public class ProductsDBUtil {
 				String product_name = myRs.getString("product_name");
 				float price = myRs.getFloat("price");
 				String product_image = myRs.getString("product_image");
-				Products tempCoffee = new Products(product_name, price, product_image);
+				HomeProducts tempCoffee = new HomeProducts(product_name, price, product_image);
 				coffee.add(tempCoffee);
 			}
 			return coffee;
@@ -85,8 +85,8 @@ public class ProductsDBUtil {
 		}
 	}
 	
-	public List<Products> getDrinkware() throws Exception {
-		List<Products> drinkware = new ArrayList<>();
+	public List<HomeProducts> getDrinkware() throws Exception {
+		List<HomeProducts> drinkware = new ArrayList<>();
 		Connection myConn = null;
 		Statement myStmt = null;
 		ResultSet myRs = null;
@@ -102,7 +102,7 @@ public class ProductsDBUtil {
 				String product_name = myRs.getString("product_name");
 				float price = myRs.getFloat("price");
 				String product_image = myRs.getString("product_image");
-				Products tempDrinkware = new Products(product_name, price, product_image);
+				HomeProducts tempDrinkware = new HomeProducts(product_name, price, product_image);
 				drinkware.add(tempDrinkware);
 			}
 			return drinkware;

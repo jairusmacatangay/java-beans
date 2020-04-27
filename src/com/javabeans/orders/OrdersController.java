@@ -52,7 +52,7 @@ public class OrdersController {
 	
 	public void loadUserDetails(Users theUser) {
 		try {
-			Orders_Users user = ordersDBUtil.getUserDetails(theUser);
+			OrdersUsers user = ordersDBUtil.getUserDetails(theUser);
 			
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			Map<String, Object> requestMap = externalContext.getRequestMap();

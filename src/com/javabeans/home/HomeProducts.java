@@ -3,17 +3,17 @@ package com.javabeans.home;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class Products {
+public class HomeProducts {
 	private int product_id;
 	private String product_name;
 	private float price;
 	private String product_image;
 	
-	public Products() {
+	public HomeProducts() {
 		
 	}
 	
-	public Products(String product_name, float price, String product_image) {
+	public HomeProducts(String product_name, float price, String product_image) {
 		this.product_name = product_name;
 		this.price = price;
 		this.product_image = product_image;

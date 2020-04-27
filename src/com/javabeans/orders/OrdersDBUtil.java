@@ -131,7 +131,7 @@ public class OrdersDBUtil {
 		}
 	}	
 	
-	public Orders_Users getUserDetails(Users theUser) throws Exception {
+	public OrdersUsers getUserDetails(Users theUser) throws Exception {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
@@ -145,7 +145,7 @@ public class OrdersDBUtil {
 			myStmt.setInt(1, theUser.getUser_id());
 			myRs = myStmt.executeQuery();
 			
-			Orders_Users user = null;
+			OrdersUsers user = null;
 			
 			if (myRs.next()) {
 				String first_name = myRs.getString("first_name");
@@ -160,7 +160,7 @@ public class OrdersDBUtil {
 				String province = myRs.getString("province");
 				String zip_code = myRs.getString("zip_code");
 				
-				user = new Orders_Users(first_name, middle_name, last_name, email, 
+				user = new OrdersUsers(first_name, middle_name, last_name, email, 
 						mobile_no, bldg_no, street, city, barangay, province, 
 						zip_code);
 			} else {

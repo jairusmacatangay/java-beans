@@ -3,7 +3,7 @@ package com.javabeans.orders;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class Orders_Users {
+public class OrdersUsers {
 	
 	private int user_id;
 	private String first_name;
@@ -18,7 +18,7 @@ public class Orders_Users {
 	private String province;
 	private String zip_code;
 	
-	public Orders_Users(String first_name, String middle_name, String last_name, 
+	public OrdersUsers(String first_name, String middle_name, String last_name, 
 			String email, String mobile_no, String bldg_no, String street, 
 			String city, String barangay, String province, String zip_code) {
 		this.first_name = first_name;
@@ -34,7 +34,7 @@ public class Orders_Users {
 		this.zip_code = zip_code;
 	}
 	
-	public Orders_Users() {
+	public OrdersUsers() {
 		
 	}
 	
