@@ -197,8 +197,8 @@
 									<h6>#{tempProduct.product_name}</h6>
 									<p>#{tempProduct.price}</p>
 									<h:form>
-										<h:commandLink value="View Details" class="btn btn-secondary btn-block mb-2" 
-											action="#" />
+										<h:commandButton value="View Details" styleClass="btn btn-secondary btn-block"
+											action="#{productsController.productDetailsGuest(tempProduct)}" />
 										<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
 									</h:form>
 								</div>

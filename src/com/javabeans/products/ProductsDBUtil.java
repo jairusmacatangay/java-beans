@@ -76,6 +76,41 @@ public class ProductsDBUtil {
 		}
 	}
 	
+	public Products getProductDetails(Products theProduct) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+
+		try {
+			myConn = getConnection();
+			String sql = "SELECT * FROM products WHERE product_id = ?";
+
+			myStmt = myConn.prepareStatement(sql);
+
+			myStmt.setInt(1, theProduct.getProduct_id());
+
+			myRs = myStmt.executeQuery();
+
+			if (myRs.next()) {
+				theProduct.setProduct_id(myRs.getInt(1));
+				theProduct.setProduct_category(myRs.getString(2));
+				theProduct.setProduct_name(myRs.getString(3));
+				theProduct.setDescription(myRs.getString(4));
+				theProduct.setPrice(myRs.getFloat(5));
+				theProduct.setProduct_image(myRs.getString(6));
+				return theProduct;
+			}
+		} catch (Exception exc) {
+			throw new Exception("Could not find product: " + exc.getMessage());
+		} finally {
+			close(myConn, myStmt, myRs);
+		}
+		return null;
+	}
+	
+	
+
+	
 	public void addProduct(Products theProduct) throws Exception {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;

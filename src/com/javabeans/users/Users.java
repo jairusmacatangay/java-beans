@@ -49,6 +49,7 @@ public class Users {
 	private float price; //products
 	
 	
+	
 	public Users() {
 		genderOptions = new ArrayList<>();
 		

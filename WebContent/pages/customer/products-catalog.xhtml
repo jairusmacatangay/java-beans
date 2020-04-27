@@ -186,6 +186,12 @@
 			
 				<!-- Content Row -->
 				<div class="row">
+				<!-- End of Content Row -->
+				</div>
+				<br/>
+				
+				<!-- Content Row -->
+				<div class="row">
 					<ui:repeat var="tempProduct" value="#{productsController.products}">
 						<div class="col-sm-4" >
 							<div class="card mb-3 shadow">
@@ -195,8 +201,8 @@
 									<h6>#{tempProduct.product_name}</h6>
 									<p>#{tempProduct.price}</p>
 									<h:form>
-										<h:commandLink value="View Details" class="btn btn-secondary btn-block mb-2" 
-											action="#" />
+										<h:commandButton value="View Details" styleClass="btn btn-secondary btn-block"
+											action="#{productsController.productDetails(tempProduct)}" />
 										<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
 									</h:form>
 								</div>

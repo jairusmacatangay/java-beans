@@ -43,15 +43,16 @@ public class UsersController {
 		
 	}
 	
-	//login
 	public String validateUser(Users theUser) throws Exception {
 		try {
 			theUser = usersDBUtil.validateUser(theUser);
 			String user_type = theUser.getUser_type();
 			
 			if(user_type.equals("Customer")) {
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_id", theUser.getUser_id());
 				return "/pages/customer/home-page?faces-redirect=true";
 			} else if (user_type.equals("Admin")) {
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user_id", theUser.getUser_id());
 				return "/pages/admin/dashboard?faces-redirect=true";
 			}
 		} catch (Exception ex) {
@@ -61,7 +62,7 @@ public class UsersController {
 		FacesContext.getCurrentInstance().addMessage("login:submit", new FacesMessage("Incorrect Email and Password!"));
 		return "login";
 	}
-	
+		
 	//get account details for view
 	public String accountDetails(Users theUser) {
 		logger.info("Account details for user: " + theUser);

@@ -12,9 +12,15 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import com.javabeans.feedback.Feedbacks;
+import com.javabeans.feedback.FeedbacksDBUtil;
+
 @ManagedBean
 @SessionScoped
 public class ProductsController {
+	private Products currentProduct;
+	private List<Feedbacks> feedbacks;
+	private FeedbacksDBUtil feedbacksDBUtil;
 	private List<Products> productsList;
 	private ProductsDBUtil productsDBUtil;
 	private Logger logger = Logger.getLogger(getClass().getName());
@@ -22,6 +28,7 @@ public class ProductsController {
 	public ProductsController() throws Exception {
 		productsList = new ArrayList<>();
 		productsDBUtil = ProductsDBUtil.getInstance();
+		feedbacksDBUtil = FeedbacksDBUtil.getInstance();
 	}
 	
 	public List<Products> getProducts() {
@@ -36,6 +43,79 @@ public class ProductsController {
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
+	}
+	
+	public List<Feedbacks> getFeedbacks() {
+		return feedbacks;
+	}
+	
+	public Products getCurrentProduct(){
+		return currentProduct;
+	}
+	
+	public String productDetails(Products theProduct) {
+		logger.info("Product details for: " + theProduct);
+
+		try {
+			// set product details
+			theProduct = productsDBUtil.getProductDetails(theProduct);
+
+			// set products' feedbacks
+			feedbacks = feedbacksDBUtil.getFeedbacks(theProduct.getProduct_id());
+
+			// for displaying a single product
+			currentProduct = theProduct;
+
+		} catch (Exception exc) {
+			logger.log(Level.SEVERE, "Error loading product details: " + theProduct, exc);
+			addErrorMessage(exc);
+			return null;
+		}
+		return "/pages/customer/product-details?faces-redirect=true";
+	}
+	
+	public String productDetailsGuest(Products theProduct) {
+		try {
+			// set product details
+			theProduct = productsDBUtil.getProductDetails(theProduct);
+
+			// set products' feedbacks
+			feedbacks = feedbacksDBUtil.getFeedbacks(theProduct.getProduct_id());
+
+			// for displaying a single product
+			currentProduct = theProduct;
+
+		} catch (Exception exc) {
+			logger.log(Level.SEVERE, "Error loading product details: " + theProduct, exc);
+			addErrorMessage(exc);
+			return null;
+		}
+		return "/pages/guest/product-details?faces-redirect=true";
+	}
+	
+	public String addFeedback(Feedbacks theFeedback) {
+		logger.info("Adding feedback: " + theFeedback);
+
+		try {
+			//user_id 
+			int user_id = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user_id");
+			theFeedback.setUser_id(user_id);
+
+			//product_id
+			theFeedback.setProduct_id(currentProduct.getProduct_id());
+
+			feedbacksDBUtil.addFeedback(theFeedback);
+
+			//refresh list of feedbacks after adding a feedback to the DB
+			feedbacks = feedbacksDBUtil.getFeedbacks(currentProduct.getProduct_id());
+
+		} catch(Exception exc) {
+			logger.log(Level.SEVERE, "Error adding student", exc);
+			addErrorMessage(exc);
+
+			return null;
+		}
+		return "product-details?faces-redirect=true";
 	}
 	
 	public String addProduct(Products theProduct) {
