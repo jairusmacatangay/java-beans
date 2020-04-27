@@ -4,3 +4,4 @@
 		username="root" password="" driverClassName="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/java_beans_db" />
 </Context>
+
