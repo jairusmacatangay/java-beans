@@ -1,34 +1,42 @@
 package com.javabeans.products;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.servlet.http.Part;
 
 @ManagedBean
 public class Products {
 
-	private int id;
-	private String name;
-	private String category;
-	private float price;
+	private int product_id;
+	private String product_category;
+	private String product_name;
 	private String description;
-	//private image
-	private Date datetime;
+	private float price;
+	private String product_image;
+	private Part image;
 	
 	List<String> categoryOptions;
 	
-	public Products()
-	{
+	public Products() {
 		
 	}
 	
-	public Products(int id, String name, String category, float price, String description)
-	{
-		this.id = id;
-		this.name = name;
-		this.category = category;
+	public Products(int product_id, String product_category, String product_name, 
+			String description, float price, String product_image) {
+		this.product_id = product_id;
+		this.product_category = product_category;
+		this.product_name = product_name;
+		this.price = price;
+		this.description = description;
+		this.product_image = product_image;
+	}
+	
+	public Products(int product_id, String product_category, String product_name, 
+			String description, float price) {
+		this.product_id = product_id;
+		this.product_category = product_category;
+		this.product_name = product_name;
 		this.price = price;
 		this.description = description;
 	}
@@ -37,36 +45,28 @@ public class Products {
 		return categoryOptions;
 	}
 
-	public int getId() {
-		return id;
+	public int getProduct_id() {
+		return product_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
 	}
 
-	public String getName() {
-		return name;
+	public String getProduct_category() {
+		return product_category;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProduct_category(String product_category) {
+		this.product_category = product_category;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getProduct_name() {
+		return product_name;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 
 	public String getDescription() {
@@ -77,12 +77,31 @@ public class Products {
 		this.description = description;
 	}
 
-	public Date getDatetime() {
-		return datetime;
+	public float getPrice() {
+		return price;
 	}
 
-	public void setDatetime(Date datetime) {
-		this.datetime = datetime;
+	public void setPrice(float price) {
+		this.price = price;
 	}
-	
+
+	public String getProduct_image() {
+		return product_image;
+	}
+
+	public void setProduct_image(String product_image) {
+		this.product_image = product_image;
+	}
+
+	public void setCategoryOptions(List<String> categoryOptions) {
+		this.categoryOptions = categoryOptions;
+	}
+
+	public Part getImage() {
+		return image;
+	}
+
+	public void setImage(Part image) {
+		this.image = image;
+	}
 }

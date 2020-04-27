@@ -15,92 +15,81 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @SessionScoped
 public class ProductsController {
-
-	private List<Products> products;
+	private List<Products> productsList;
 	private ProductsDBUtil productsDBUtil;
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	public ProductsController() throws Exception {
-		products = new ArrayList<>();
-		
+		productsList = new ArrayList<>();
 		productsDBUtil = ProductsDBUtil.getInstance();
 	}
 	
 	public List<Products> getProducts() {
-		return products;
+		return productsList;
 	}
 	
-	//List of Products
-	public void loadProducts()
-	{
+	public void loadProducts() {
 		logger.info("Loading products");
-		products.clear();
-		
-		try
-		{
-             //get all products from database
-              products = productsDBUtil.getProducts();
-            
-		}
-		catch(Exception ex)
-		{
-			//add error message for JSF page
+		productsList.clear();
+		try {
+			productsList = productsDBUtil.getProducts();
+		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
 	}
 	
-	//Add Product
-	public String addProduct(Products theProduct)
-	{
+	public String addProduct(Products theProduct) {
 		logger.info("Adding product: " + theProduct);
-		
-		try
-		{
-			//add product to the database
+		try {
 			productsDBUtil.addProduct(theProduct);
-		}
-		catch(Exception exc)
-		{
-			//send this to server logs
+		} catch (Exception exc) {
 			logger.log(Level.SEVERE, "Error adding product", exc);
-			
-			//add error message for JSF page
 			addErrorMessage(exc);
-			
 			return null;
 		}
-		
 		return "add-product?faces-redirect=true";
 	}
 	
-	//Delete Product
-	public String deleteProduct(int productId)
-	{
+	public String deleteProduct(int productId) {
 		logger.info("Deleting product id: " + productId);
-		
-		try
-		{
-			//delete the product from the database
+		try {
 			productsDBUtil.deleteProduct(productId);
-		}
-		catch (Exception exc)
-		{
-			//send this to server logs
+		} catch (Exception exc) {
 			logger.log(Level.SEVERE, "Error deleting product id: " + productId, exc);
-			
-			//add error message for JSF page
 			addErrorMessage(exc);
-			
 			return null;
 		}
-		
 		return "view-all-products?faces-redirect=true";
 	}
+		
+	public void loadProduct(int product_id) {
+		logger.info("Loading product: " + product_id);
+		try {
+			Products theProduct = productsDBUtil.getProduct(product_id);
+			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			Map<String, Object> requestMap = externalContext.getRequestMap();
+			requestMap.put("products", theProduct);
+		} catch (Exception ex) {
+			logger.log(Level.SEVERE, "Error loading product:" + product_id, ex);
+			addErrorMessage(ex);
+		}
+	}
 	
+	public String updateProduct(Products theProduct) {
+		logger.info("Updating Product: " + theProduct);
+		
+		try {
+			productsDBUtil.updateProduct(theProduct);
+		} catch (Exception ex) {
+			logger.log(Level.SEVERE, "Error updating product: " + theProduct, ex);
+			addErrorMessage(ex);
+			return null;
+		}
+		return "view-all-products?faces-redirect=true";
+	}
 	
 	private void addErrorMessage(Exception exc) {
 		FacesMessage message = new FacesMessage("Error: " + exc.getMessage());
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
-	
 }
