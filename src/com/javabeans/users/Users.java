@@ -11,7 +11,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class Users {
 
-	//User variables
+	// User variables
 	private int user_id;
 	private String user_type;
 	private String email;
@@ -29,39 +29,45 @@ public class Users {
 	private String barangay;
 	private String province;
 	private String zip_code;
-	
-	//password length
+	private String dob;
+
+	// password length
 	private String passwordResult;
-	
-	//confirm password
+
+	// confirm password
 	private String confirmPassword = "";
 	private String confirmPasswordResult;
-	
-	//List Options for Gender Type
-	List<String>genderOptions;
-	
-	//order_details, orders, products table for transaction history
-	private int ref_no; //order_details
-	private int quantity; //order_details
-	private int order_id; //orders
-	private Date date_ordered; //orders
-	private String product_name; //products
-	private float price; //products
-	
-	
-	
+
+	// List Options for Gender Type
+	List<String> genderOptions;
+
+	// order_details, orders, products table for transaction history
+	private int ref_no; // order_details
+	private int quantity; // order_details
+	private int order_id; // orders
+	private Date date_ordered; // orders
+	private String product_name; // products
+	private float price; // products
+
 	public Users() {
 		genderOptions = new ArrayList<>();
-		
+
 		genderOptions.add("Male");
 		genderOptions.add("Female");
-		
+
 	}
 	
-	public Users(int user_id, String user_type, String email, String password, String first_name, 
-			String middle_name, String last_name, String telephone_no, String mobile_no, Date DOB, String gender, 
-			String bldg_no, String street, String city, String barangay, String province, String zip_code) 
-	{
+	public Users(String first_name, String last_name, String city, String gender, String dob) {
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.city = city;
+		this.gender = gender;
+		this.dob = dob;
+	}
+	
+	public Users(int user_id, String user_type, String email, String password, String first_name, String middle_name,
+			String last_name, String telephone_no, String mobile_no, Date DOB, String gender, String bldg_no,
+			String street, String city, String barangay, String province, String zip_code) {
 		this.user_id = user_id;
 		this.user_type = user_type;
 		this.email = email;
@@ -80,7 +86,7 @@ public class Users {
 		this.province = province;
 		this.zip_code = zip_code;
 	}
-	
+
 	public Users(int ref_no, int order_id, String product_name, float price, int quantity, Date date_ordered) {
 		this.ref_no = ref_no;
 		this.order_id = order_id;
@@ -242,25 +248,20 @@ public class Users {
 		this.confirmPassword = confirmPassword;
 	}
 
-
 	public String getPasswordResult() {
-		
-		if(!password.isEmpty())
-		{
-			
-			if(password.length() < 7) {
+
+		if (!password.isEmpty()) {
+
+			if (password.length() < 7) {
 				passwordResult = "Password strength is poor";
-			}
-			else if(password.length() < 10)	{
+			} else if (password.length() < 10) {
 				passwordResult = "Password strength is medium";
-			}
-			else {
+			} else {
 				passwordResult = "Password strength is strong";
 			}
-		}
-		else		
+		} else
 			passwordResult = "";
-			
+
 		return passwordResult;
 
 	}
@@ -270,28 +271,25 @@ public class Users {
 	}
 
 	public String getConfirmPasswordResult() {
-		
-		if(!confirmPassword.isEmpty())
-		{
-			if(confirmPassword.equals(password)){
+
+		if (!confirmPassword.isEmpty()) {
+			if (confirmPassword.equals(password)) {
 				confirmPasswordResult = "Confirm Password matches with Password!";
-			}
-			else {
+			} else {
 				confirmPasswordResult = "Confirm Password does not match with Password!";
 			}
-		}
-		else {
+		} else {
 			confirmPasswordResult = "";
 		}
-		
+
 		return confirmPasswordResult;
 	}
 
 	public void setConfirmPasswordResult(String confirmPasswordResult) {
 		this.confirmPasswordResult = confirmPasswordResult;
 	}
-	
-	//Order_Details, Orders, Products table for Transaction History
+
+	// Order_Details, Orders, Products table for Transaction History
 
 	public int getRef_no() {
 		return ref_no;
@@ -340,6 +338,13 @@ public class Users {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
-	
+
+	public String getDob() {
+		return dob;
+	}
+
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
 }

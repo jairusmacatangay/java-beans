@@ -31,12 +31,28 @@ public class Orders {
 	private String status;
 	private LocalDateTime date_ordered;
 	
+	//Users Table Fields
+	private String first_name;
+	private String last_name;
+	
 	public Orders(float total_amount, float gross, float vat, float shippingFee, float overallTotal) {
 		this.total_amount = total_amount;
 		this.gross = gross;
 		this.vat = vat;
 		this.shippingFee = shippingFee;
 		this.overallTotal = overallTotal;
+	}
+	
+	public Orders(int order_id, String product_name, float price, int quantity, String status, float total_amount,
+			String first_name, String last_name) {
+		this.order_id = order_id;
+		this.product_name = product_name;
+		this.price = price;
+		this.quantity = quantity;
+		this.status = status;
+		this.total_amount = total_amount;
+		this.first_name = first_name;
+		this.last_name = last_name;
 	}
 	
 	public Orders(int ref_no, int order_id, int product_id, int user_id, int quantity, float total_amount,
@@ -185,5 +201,21 @@ public class Orders {
 
 	public void setOverallTotal(float overallTotal) {
 		this.overallTotal = overallTotal;
+	}
+	
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
 	}
 }

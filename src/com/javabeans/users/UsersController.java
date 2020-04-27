@@ -18,13 +18,30 @@ import com.javabeans.users.UsersDBUtil;
 @SessionScoped
 public class UsersController {
 	
-	public List<Users>transactions;
+	public List<Users> transactions;
 	private UsersDBUtil usersDBUtil;
+	private List<Users> users;
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	public UsersController() throws Exception {
 		transactions = new ArrayList<>();
+		users = new ArrayList<>();
 		usersDBUtil = UsersDBUtil.getInstance();
+	}
+	
+	public List<Users> getUsers() {
+		return users;
+	}
+	
+	public void loadUsers() {
+		logger.info("Loading Users");
+		users.clear();
+
+		try {
+			users = usersDBUtil.getUsers();
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		}
 	}
 	
 	//register

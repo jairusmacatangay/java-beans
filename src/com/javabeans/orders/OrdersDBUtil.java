@@ -84,6 +84,43 @@ public class OrdersDBUtil {
 		}
 	}
 	
+	public List<Orders> getOrders() throws Exception {
+		List<Orders> orders = new ArrayList<>();
+		Connection myConn = null;
+		Statement myStmt = null;
+		ResultSet myRs = null;
+
+		try {
+			myConn = getConnection();
+			String sql = "SELECT orders.order_id, products.product_name, products.price, quantity, orders.status, total_amount, "
+					+ "users.first_name, users.last_name FROM (((order_details "
+					+ "INNER JOIN orders ON order_details.order_id = orders.order_id) "
+					+ "INNER JOIN users ON order_details.user_id = users.user_id) "
+					+ "INNER JOIN products ON order_details.product_id = products.product_id)";
+
+			myStmt = myConn.createStatement();
+			myRs = myStmt.executeQuery(sql);
+
+			while (myRs.next()) {
+				int orderId = myRs.getInt("order_id");
+				String productName = myRs.getString("product_name");
+				int price = myRs.getInt("price");
+				int qty = myRs.getInt("quantity");
+				String status = myRs.getString("status");
+				int total = myRs.getInt("total_amount");
+				String firstName = myRs.getString("first_name");
+				String lastName = myRs.getString("last_name");
+
+				Orders tempOrder = new Orders(orderId, productName, price, qty, status, total, firstName, lastName);
+
+				orders.add(tempOrder);
+			}
+		} finally {
+			close(myConn, myStmt, myRs);
+		}
+		return orders;
+	}
+	
 	public Orders getOrderSummValues(Users theUser) throws Exception {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;

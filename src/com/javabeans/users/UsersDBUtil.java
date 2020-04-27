@@ -44,6 +44,37 @@ public class UsersDBUtil {
 		return theDataSource;
 	}
 	
+	public List<Users> getUsers() throws Exception {
+		List<Users> users = new ArrayList<>();
+
+		Connection myConn = null;
+		Statement myStmt = null;
+		ResultSet myRs = null;
+
+		try {
+			myConn = getConnection();
+			String sql = "select first_name, last_name, city, gender, DOB from users";
+
+			myStmt = myConn.createStatement();
+			myRs = myStmt.executeQuery(sql);
+
+			while (myRs.next()) {
+				String firstName = myRs.getString("first_name");
+				String lastName = myRs.getString("last_name");
+				String city = myRs.getString("city");
+				String gender = myRs.getString("gender");
+				String dob = myRs.getString("DOB");
+
+				Users tempUser = new Users(firstName, lastName, city, gender, dob);
+
+				users.add(tempUser);
+			}
+			return users;
+		} finally {
+			close(myConn, myStmt, myRs);
+		}	
+	}
+	
 	//register
 	public void addUser(Users theUser) throws Exception
 	{

@@ -3,6 +3,7 @@ package com.javabeans.orders;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -12,15 +13,19 @@ import javax.faces.context.FacesContext;
 
 import com.javabeans.users.Users;
 
+
 @SessionScoped
 @ManagedBean
 public class OrdersController {
 
 	private List<Orders> cart;
+	private List<Orders> orders;
 	private OrdersDBUtil ordersDBUtil;
+	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	public OrdersController() throws Exception {
 		cart = new ArrayList<>();
+		orders = new ArrayList<>();
 		ordersDBUtil = OrdersDBUtil.getInstance();
 	}
 	
@@ -33,6 +38,20 @@ public class OrdersController {
 
 		try {
 			cart = ordersDBUtil.getCart(theUser);
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		}
+	}
+	
+	public List<Orders> getOrders() {
+		return orders;
+	}
+	
+	public void loadOrders() {
+		logger.info("Loading Orders");
+		orders.clear();
+		try {
+			orders = ordersDBUtil.getOrders();
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
