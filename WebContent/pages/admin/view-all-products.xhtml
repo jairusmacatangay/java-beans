@@ -184,32 +184,47 @@
 			<!-- Products Catalog -->
 			<div class="col-sm-9">	
 			
-				<h:form>
+				
 					<!-- Content Row -->
 					<div class="row">
-					<ui:repeat var="tempProduct" value="#{productsController.products}">
-					
-						<div class="col-sm-4" >
-							<div class="card">
-								<h:graphicImage library="img/placeholders" 
-									name="image-placeholder.jpg" styleClass="card-img-top"/>
-								<div class="card-body">
-									<h6>#{tempProduct.name}</h6>
-									<p>#{tempProduct.price}</p>
-									<h:commandLink value="View Details" class="btn btn-secondary btn-block" 
-										action="#" />
-									<h:commandLink value="Delete" class="btn btn-outline-danger btn-block" 
-										onclick="if (!confirm('Are you sure you want to delete this product?')) return false" 
-										action="#{productsController.deleteProduct(tempProduct.id)}" />
+						<!-- UI Repeat -->
+						<ui:repeat var="tempProduct" value="#{productsController.products}">
+						
+							<div class="col-sm-4" >
+								<div class="card mb-3 shadow">
+							  		<h:graphicImage library="img/products_img" 
+										name="#{tempProduct.product_image}" styleClass="card-img-top border-bottom"/>
+									<div class="card-body">
+										<h6>#{tempProduct.product_name}</h6>
+										<p>#{tempProduct.price}</p>
+										<h:form>
+											<h:commandLink value="View Details" class="btn btn-secondary btn-block mb-2" 
+												action="#" />
+										</h:form>
+										<div class="row">
+											<div class="col-sm-6 pr-1">
+												<h:link value="Edit" outcome="edit-product"  
+													styleClass="btn btn-outline-secondary btn-block">
+													<f:param name="product_id" value="#{tempProduct.product_id}" />
+												</h:link>
+											</div>
+											<div class="col-sm-6 pl-1">
+												<h:form>
+													<h:commandLink value="Delete" class="btn btn-outline-danger btn-block" 
+														onclick="if (!confirm('Are you sure you want to delete this product?')) return false" 
+														action="#{productsController.deleteProduct(tempProduct.product_id)}" />	
+												</h:form>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					
+						<!-- End of UI Repeat -->
+						</ui:repeat>
 					<!-- End of Content Row -->
-					</ui:repeat>
 					</div>
 					<br/>
-				</h:form>
+				
 				
 			<!-- End of Products Catalog -->
 			</div>

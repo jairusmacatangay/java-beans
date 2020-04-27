@@ -3,8 +3,13 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"	
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{productsController.loadProducts}" />
+	</f:metadata>
+	
 	<title>Java Beans | Products Catalog</title>
 	
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
@@ -181,91 +186,26 @@
 			
 				<!-- Content Row -->
 				<div class="row">
-				
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
+									
+					<ui:repeat var="tempProduct" value="#{productsController.products}">
 					
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
+						<div class="col-sm-4" >
+							<div class="card mb-3 shadow">
+								<h:graphicImage library="img/products_img" 
+									name="#{tempProduct.product_image}" styleClass="card-img-top border-bottom"/>
+								<div class="card-body">
+									<h6>#{tempProduct.product_name}</h6>
+									<p>#{tempProduct.price}</p>
+									<h:form>
+										<h:commandLink value="View Details" class="btn btn-secondary btn-block mb-2" 
+											action="#" />
+										<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
+									</h:form>
+								</div>
 							</div>
 						</div>
-					</div>
 					
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
-				
-				<!-- End of Content Row -->
-				</div>
-				<br/>
-				
-				<!-- Content Row -->
-				<div class="row">
-				
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
+					</ui:repeat>
 				
 				<!-- End of Content Row -->
 				</div>
