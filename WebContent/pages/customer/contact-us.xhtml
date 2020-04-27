@@ -4,6 +4,10 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
 <h:head>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{inquiriesController.loadUser}"/>
+	</f:metadata>
+
 	<title>Contact Us - Java Beans</title>
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" 
@@ -46,7 +50,9 @@
 								First Name
 							</h:outputLabel>
 							<h:inputText styleClass="form-control" 
-								id="firstName" value=""/>
+								id="firstName" readonly="true"
+								value="#{inquiries.first_name}"/>
+							<h:inputHidden value="#{inquiries.first_name}" />
 						</div>
 						
 						<!-- Last Name Label and Input -->
@@ -56,7 +62,9 @@
 								Last Name
 							</h:outputLabel>
 							<h:inputText styleClass="form-control" 
-								id="lastName" value=""/>
+								id="lastName" readonly="true"
+								value="#{inquiries.last_name}" />
+							<h:inputHidden value="#{inquiries.last_name}" />
 						</div>
 					
 					<!-- End of Content Row -->	
@@ -67,7 +75,10 @@
 					<h:outputLabel styleClass="form-label" for="email">
 						Email
 					</h:outputLabel>
-					<h:inputText styleClass="form-control" id="email" value=""/>
+					<h:inputText styleClass="form-control" id="email" 
+						required="true" readonly="true"
+						value="#{inquiries.email}"/>
+					<h:inputHidden value="#{inquiries.email}" />
 					<br/>
 					
 					<!-- Message Label and Text Area -->
@@ -75,11 +86,15 @@
 						Message
 					</h:outputLabel>
 					<h:inputTextarea styleClass="form-control" id="message" 
-						value="" rows="5"/>
+						rows="5" required="true" 
+						requiredMessage="Message is required."
+						value="#{inquiries.message}" />
+					<h:message for="message" styleClass="text-danger" />
 					<br/>
 					
 					<h:commandButton value="Send Message" 
-						styleClass="btn btn-primary"/>
+						styleClass="btn btn-primary" 
+						action="#{inquiriesController.sendInquiry(inquiries)}"/>
 	
 				<!-- End Form -->
 				</h:form>

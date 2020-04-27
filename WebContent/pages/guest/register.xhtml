@@ -6,6 +6,14 @@
 	<h:head>
 		<title>Register - Java Beans</title>
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
+	    <h:outputStylesheet library="css" name="jquery-ui.css" />
+	    <h:outputStylesheet library="css" name="styles.css" />
+	    
+	    <style>
+	    	.error {
+	    		color: red;
+	    	}
+		</style>
 	</h:head>
 	<h:body>
 	
@@ -24,7 +32,7 @@
 			</div>			
 			<br/>
 		
-			<h:form>
+			<h:form id="register">
 			
 				<h5>Login Credentials</h5>
 				<hr/>
@@ -34,33 +42,39 @@
 					
 					<!-- Email Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" for="email">
-							Email
-						</h:outputLabel>
-						<h:inputText styleClass="form-control" id="email" 
-							value="" />
+						<h:outputLabel styleClass="form-label" for="email">Email</h:outputLabel>
+						<h:inputText styleClass="form-control" id="email" value="#{users.email}" 
+							required="true" requiredMessage="Email is required" validatorMessage="Invalid email format. (E.g. john_doe@gmail.com)" >
+							<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]"/>
+						</h:inputText>
+						<h:message for="email" styleClass="error"/>
 					</div>
 					
 					<!-- Password Label and Input --> 
 					<div class="col-4">		
-						<h:outputLabel styleClass="form-label" 
-							for="password">
-							Password
-						</h:outputLabel>
-						<h:inputSecret styleClass="form-control" 
-							id="password" value=""/>
+						<h:outputLabel styleClass="form-label" for="password">Password</h:outputLabel>
+						<h:inputSecret styleClass="form-control" id="password" value="#{users.password}"
+							required="true" requiredMessage="Password is required" validatorMessage="Password length minimum is 6" >
+							<f:validateLength minimum="6" />
+							<f:ajax event="keyup" render="checkPass"/>
+						</h:inputSecret>
+						<h:message for="password" styleClass="error" />
+						<br/>
+						<h:outputLabel id="checkPass" value="#{users.passwordResult}" styleClass="error" />
 					</div>
 					
 					<!-- Confirm Password Label and Input --> 
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="confirmPassword">
-							Confirm Password
-						</h:outputLabel>
-						<h:inputSecret styleClass="form-control" 
-							id="confirmPassword" value=""/>
+						<h:outputLabel styleClass="form-label" for="confirmPassword">Confirm Password</h:outputLabel>
+						<h:inputSecret styleClass="form-control" id="confirmPassword" value="#{users.confirmPassword}" 
+							required="true" requiredMessage="Confirm Password is required">
+							<f:ajax event="keyup" render="outtxt"/>
+						</h:inputSecret>
+						<h:message for="confirmPassword" styleClass="error"/>
+						<br/>
+						<h:outputLabel id="outtxt" value="#{users.confirmPasswordResult}" styleClass="error" />
 					</div>
-				
+									
 				<!-- End of Content Row -->
 				</div>
 				<br/>
@@ -72,32 +86,26 @@
 					
 					<!-- First Name Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="firstName">
-							First Name
-						</h:outputLabel>
-						<h:inputText id="firstName" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="firstName">First Name</h:outputLabel>
+						<h:inputText id="firstName" value="#{users.first_name}" styleClass="form-control"
+							required="true" requiredMessage="First name is required"/>
+						<h:message for="firstName" styleClass="error"/>
 					</div>
 					
 					<!-- Middle Name Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="middleName">
-							Middle Name
-						</h:outputLabel>
-						<h:inputText id="middleName" value=""
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="middleName">Middle Name</h:outputLabel>
+						<h:inputText id="middleName" value="#{users.middle_name}" styleClass="form-control"
+							required="true" requiredMessage="Middle name is required"/>
+						<h:message for="middleName" styleClass="error"/>
 					</div>
 					
 					<!-- Last Name Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="lastName">
-							Last Name
-						</h:outputLabel>
-						<h:inputText id="lastName" value=""
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="lastName">Last Name</h:outputLabel>
+						<h:inputText id="lastName" value="#{users.last_name}" styleClass="form-control"
+							required="true" requiredMessage="Last name is required"/>
+						<h:message for="lastName" styleClass="error"/>	
 					</div>
 				
 				<!-- End of Content Row -->
@@ -109,32 +117,32 @@
 				
 					<!-- Telephone No. Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="teleNo">
-							Telephone No.
-						</h:outputLabel>
-						<h:inputText id="teleNo" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="teleNo">Telephone No.</h:outputLabel>
+						<h:inputText id="teleNo" value="#{users.telephone_no}" styleClass="form-control"
+							required="true" requiredMessage="Telephone No. is required" validatorMessage="E.g. XXXX-XXXX">
+							<f:validateRegex pattern="\d{4}-\d{4}" />
+						</h:inputText>
+						<h:message for="teleNo" styleClass="error" />
 					</div>
 					
 					<!-- Mobile No. Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="mobileNo">
-							Mobile No.
-						</h:outputLabel>
-						<h:inputText id="mobileNo" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="mobileNo">Mobile No.</h:outputLabel>
+						<h:inputText id="mobileNo" value="#{users.mobile_no}" styleClass="form-control"
+							required="true" requiredMessage="Mobile No. is required" validatorMessage="E.g. +63-9XX-XXXXXXX" >
+							<f:validateRegex pattern="\+\d{2}-\d{3}-\d{7}"/>
+						</h:inputText>
+						<h:message for="mobileNo" styleClass="error"/>
 					</div>
 					
 					<!-- DOB Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="dob">
-							Date of Birth
-						</h:outputLabel>
-						<h:inputText id="dob" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="dob">Date of Birth</h:outputLabel>
+						<h:inputText id="dob" value="#{users.DOB}" styleClass="form-control datepicker"
+							required="true" requiredMessage="Date of Birth is required">
+							<f:convertDateTime type="date" pattern="yyyy-mm-dd"/>
+						</h:inputText>
+						<h:message for="dob" styleClass="error"/>	
 					</div>
 				
 				<!-- End of Content Row -->
@@ -146,16 +154,11 @@
 					
 					<!-- Gender Label and Radio Buttons -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="gender">
-							Gender
-						</h:outputLabel>
-						<h:selectOneRadio id="gender">
-								<f:selectItem itemValue="Male" 
-									itemLabel="Male"/>
-								<f:selectItem itemValue="Female" 
-									itemLabel="Female"/>
+						<h:outputLabel styleClass="form-label" for="gender">Gender</h:outputLabel>
+						<h:selectOneRadio id="gender" value="#{users.gender}" required="true" requiredMessage="Gender is required">
+								<f:selectItems value="#{users.genderOptions}" />
 						</h:selectOneRadio>
+						<h:message for="gender" styleClass="error"/>
 					</div>
 					
 					<div class="col-4"></div>
@@ -173,32 +176,24 @@
 					
 					<!-- Bldg / House No. Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="houseNo">
-							Bldg / House No.
-						</h:outputLabel>
-						<h:inputText id="houseNo" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="houseNo">Bldg / House No.</h:outputLabel>
+						<h:inputText id="houseNo" value="#{users.bldg_no}" styleClass="form-control"/>
 					</div>
 					
 					<!-- Street Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="street">
-							Street
-						</h:outputLabel>
-						<h:inputText id="street" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="street">Street</h:outputLabel>
+						<h:inputText id="street" value="#{users.street}" styleClass="form-control"
+							required="true" requiredMessage="Street is required"/>
+						<h:message for="street" styleClass="error"/>
 					</div>
 					
 					<!-- City Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="city">
-							City
-						</h:outputLabel>
-						<h:inputText id="city" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="city">City</h:outputLabel>
+						<h:inputText id="city" value="#{users.city}" styleClass="form-control"
+							required="true" requiredMessage="Street is required"/>
+						<h:message for="street" styleClass="error"/>
 					</div>
 				
 				<!-- End of Content Row -->
@@ -210,39 +205,32 @@
 				
 					<!-- Barangay Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="barangay">
-							Barangay
-						</h:outputLabel>
-						<h:inputText id="barangay" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="barangay">Barangay</h:outputLabel>
+						<h:inputText id="barangay" value="#{users.barangay}" styleClass="form-control"/>
 					</div>
 					
 					<!-- Province Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="province">
-							Province
-						</h:outputLabel>
-						<h:inputText id="province" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="province">Province</h:outputLabel>
+						<h:inputText id="province" value="#{users.province}" styleClass="form-control"
+							required="true" requiredMessage="Province is required"/>
+						<h:message for="province" styleClass="error"/>
 					</div>
 					
 					<!-- Zip Code Label and Input -->
 					<div class="col-4">
-						<h:outputLabel styleClass="form-label" 
-							for="zipCode">
-							Zip Code
-						</h:outputLabel>
-						<h:inputText id="zipCode" value="" 
-							styleClass="form-control"/>
+						<h:outputLabel styleClass="form-label" for="zipCode">Zip Code</h:outputLabel>
+						<h:inputText id="zipCode" value="#{users.zip_code}" styleClass="form-control"
+							required="true" requiredMessage="Zip Code is required"/>
+						<h:message for="zipCode" styleClass="error"/>
+							
 					</div>
 					
 				<!-- End of Content Row -->
 				</div>
 				<br/>
 				
-				<h:commandButton value="Register" 
+				<h:commandButton value="Register" id="submit" action="#{usersController.addUser(users)}"
 					styleClass="btn btn-primary"/>
 				
 			</h:form>
@@ -257,6 +245,17 @@
 		<h:outputScript library="js" name="jquery.min.js" />
 		<h:outputScript library="js" name="bootstrap.bundle.min.js" />
 		<h:outputScript library="js" name="bootstrap.min.js" />
+		<h:outputScript library="js" name="jquery-ui.js" />
+		<script>
+		  $( function() {
+		    $( ".datepicker" ).datepicker({
+		    	dateFormat: 'yy-mm-dd',
+		    	changeMonth: true,
+		        changeYear: true,
+		        yearRange: '1930:2020'
+		    	});
+		  } );
+  		</script>
 		
 	</h:body>
     

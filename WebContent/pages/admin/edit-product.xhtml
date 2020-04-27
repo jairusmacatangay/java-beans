@@ -4,14 +4,12 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <h:head>
-    	<title>Add Product - Java Beans</title>
+    	<f:metadata>
+    		<f:viewParam name="product_id" value="#{products.product_id}"/>
+    		<f:event type="preRenderView" listener="#{productsController.loadProduct(products.product_id)}" />
+    	</f:metadata>
+    	<title>Edit Product - Java Beans</title>
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
-	    <style>
-	    	.error
-	    	{
-	    		color: red;
-	    	}
-	    </style>
     </h:head>
     
     <h:body>
@@ -26,8 +24,7 @@
 			<h1>Edit Product</h1>
 			<br/>
 			
-			<h:form>
-				<h:messages styleClass="error" />
+			<h:form enctype="multipart/form-data">
 				
 				<!-- Content Row -->
 				<div class="row">
@@ -36,11 +33,12 @@
 					
 						<!-- Product Name Label and Input -->
 						<h:outputLabel styleClass="form-label" 
-							for="productName">
+							for="name">
 							Product Name
 						</h:outputLabel>
-						<h:inputText id="name" value="#{product.name}" styleClass="form-control" 
+						<h:inputText id="name" value="#{products.product_name}" styleClass="form-control" 
 								required="true" requiredMessage="Name is required." />
+						<h:message for="name" styleClass="text-danger" />
 						<br/>
 						
 						<!-- Category Label and Input -->
@@ -48,7 +46,7 @@
 							Category
 						</h:outputLabel>
 						<br/>
-						<h:selectOneMenu id="category" value="#{product.category}">
+						<h:selectOneMenu styleClass="form-control" id="category" value="#{products.product_category}">
 							<f:selectItem itemValue="Coffee" itemLabel="Coffee" />
 							<f:selectItem itemValue="Equipment" itemLabel="Equipment" />
 							<f:selectItem itemValue="Drinkware" itemLabel="Drinkware" />
@@ -59,8 +57,9 @@
 						<h:outputLabel styleClass="form-label" for="price">
 							Price
 						</h:outputLabel>
-						<h:inputText id="price" value="#{product.price}" styleClass="form-control" step="0.1"
+						<h:inputText id="price" value="#{products.price}" styleClass="form-control"
 								required="true" requiredMessage="Price is required." />
+						<h:message for="price" styleClass="text-danger" />
 							
 					</div>
 					
@@ -75,15 +74,20 @@
 						<br/>
 						
 						<!-- Product Image Label and Input -->
-
+						<h:outputLabel styleClass="form-label" for="productImage">
+							Product Image
+						</h:outputLabel>
+						<h:inputFile value="#{products.image}" styleClass="form-control-file"
+							 id="productImage" />
+						<h:inputHidden value="#{products.product_id}"/>
 					</div>
 				
 				<!-- End of Content Row -->	
 				</div>
 				<br/>
 				
-				<h:commandButton value="Update" type="button" 
-					styleClass="btn btn-primary" />
+				<h:commandLink value="Update" type="button" 
+					styleClass="btn btn-primary"  action="#{productsController.updateProduct(products)}"/>
 		
 			</h:form>
 		
