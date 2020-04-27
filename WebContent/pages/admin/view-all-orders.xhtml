@@ -28,22 +28,22 @@
 	
 	<div class="container">
 		
-		<h1>Orders</h1>
-		<br/>
+		<h1 class="mb-3">Orders</h1>
 		
 		<h:form>
 		
-			<h:dataTable value="#{ordersController.orders}" var="tempOrder" class="table table-hover">
+			<h:dataTable styleClass="table table-striped table-hover" id="tblOrders" 
+				value="#{ordersController.orders}" var="tempOrder" headerClass="bg-dark text-white">
 				
 				<h:column>
 					<f:facet name="header">Order No.</f:facet>
 					
-					#{tempOrder.orderId}
+					#{tempOrder.order_id}
 				</h:column>
 				<h:column>
 					<f:facet name="header">Product Name</f:facet>
 					
-					#{tempOrder.productName}
+					#{tempOrder.product_name}
 				</h:column>
 				<h:column>
 					<f:facet name="header">Price</f:facet>
@@ -53,7 +53,7 @@
 				<h:column>
 					<f:facet name="header">Quantity</f:facet>
 					
-					#{tempOrder.qty}
+					#{tempOrder.quantity}
 				</h:column>
 				<h:column>
 					<f:facet name="header">Status</f:facet>
@@ -63,12 +63,12 @@
 				<h:column>
 					<f:facet name="header">Total</f:facet>
 					
-					#{tempOrder.total}
+					#{tempOrder.total_amount}
 				</h:column>
 				<h:column>
 					<f:facet name="header">Customer Name</f:facet>
 					
-					#{tempOrder.firstName} #{tempOrder.lastName}
+					#{tempOrder.first_name} #{tempOrder.last_name}
 				</h:column>
 			
 			</h:dataTable>
@@ -76,6 +76,7 @@
 		</h:form>
 
 	</div>
+	<br/>
 	
 	<!-- Footer -->
 	<ui:include src="/pages/templates/footer.xhtml" />
