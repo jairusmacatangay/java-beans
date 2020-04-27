@@ -57,21 +57,40 @@ public class ProductsController {
 		logger.info("Product details for: " + theProduct);
 
 		try {
-			//set product details
+			// set product details
 			theProduct = productsDBUtil.getProductDetails(theProduct);
 
-			//set products' feedbacks
+			// set products' feedbacks
 			feedbacks = feedbacksDBUtil.getFeedbacks(theProduct.getProduct_id());
 
-			//for displaying a single product
+			// for displaying a single product
 			currentProduct = theProduct;
 
-		}catch (Exception exc) {
-			logger.log(Level.SEVERE,"Error loading product details: " + theProduct, exc);
+		} catch (Exception exc) {
+			logger.log(Level.SEVERE, "Error loading product details: " + theProduct, exc);
 			addErrorMessage(exc);
 			return null;
 		}
 		return "/pages/customer/product-details?faces-redirect=true";
+	}
+	
+	public String productDetailsGuest(Products theProduct) {
+		try {
+			// set product details
+			theProduct = productsDBUtil.getProductDetails(theProduct);
+
+			// set products' feedbacks
+			feedbacks = feedbacksDBUtil.getFeedbacks(theProduct.getProduct_id());
+
+			// for displaying a single product
+			currentProduct = theProduct;
+
+		} catch (Exception exc) {
+			logger.log(Level.SEVERE, "Error loading product details: " + theProduct, exc);
+			addErrorMessage(exc);
+			return null;
+		}
+		return "/pages/guest/product-details?faces-redirect=true";
 	}
 	
 	public String addFeedback(Feedbacks theFeedback) {
