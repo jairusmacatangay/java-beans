@@ -3,8 +3,13 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"	
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+	<f:metadata>
+		<f:event listener="#{ordersController.loadOrders}" type="preRenderView"></f:event>
+	</f:metadata>
+
 	<title>Java Beans | View All Orders</title>
 	
 	<h:outputStylesheet library="css" name="styles.css" />
@@ -25,41 +30,50 @@
 		
 		<h1>Orders</h1>
 		<br/>
-
-		<table class="table table-hover" id="tblOrders">
-			<thead>
-				<tr>
-					<th>Order No.</th>
-					<th>Product Name</th>
-					<th>Price</th>
-					<th>Qty</th>
-					<th>Status</th>
-					<th>Total</th>
-					<th>Customer Name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>6739</td>
-					<td>French Fries</td>
-					<td>1500</td>
-					<td>1</td>
-					<td>For Confirmation</td>
-					<td>1500</td>
-					<td>John Doe</td>
-				</tr>
-
-				<tr>
-					<td>8201</td>
-					<td>Donut</td>
-					<td>1000</td>
-					<td>5</td>
-					<td>For Confirmation</td>
-					<td>5000</td>
-					<td>Bern Recci</td>
-				</tr>
-			</tbody>
-		</table>
+		
+		<h:form>
+		
+			<h:dataTable value="#{ordersController.orders}" var="tempOrder" class="table table-hover">
+				
+				<h:column>
+					<f:facet name="header">Order No.</f:facet>
+					
+					#{tempOrder.orderId}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Product Name</f:facet>
+					
+					#{tempOrder.productName}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Price</f:facet>
+					
+					#{tempOrder.price}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Quantity</f:facet>
+					
+					#{tempOrder.qty}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Status</f:facet>
+					
+					#{tempOrder.status}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Total</f:facet>
+					
+					#{tempOrder.total}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Customer Name</f:facet>
+					
+					#{tempOrder.firstName} #{tempOrder.lastName}
+				</h:column>
+			
+			</h:dataTable>
+				
+		</h:form>
 
 	</div>
 	
