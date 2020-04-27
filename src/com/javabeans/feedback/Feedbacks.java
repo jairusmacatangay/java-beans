@@ -8,22 +8,21 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class Feedbacks {
-	
+
 	private int feedback_id;
 	private int user_id;
 	private int product_id;
 	private String feedback;
 	private Date date_created;
-	
-	//users table
+
+	// users table
 	private String first_name;
 	private String last_name;
-	
-	
+
 	public Feedbacks() {
-		
+
 	}
-	
+
 	public Feedbacks(int feedback_id, int user_id, int product_id, String feedback, Date date_created) {
 		this.feedback_id = feedback_id;
 		this.user_id = user_id;
@@ -87,6 +86,5 @@ public class Feedbacks {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	
-	
+
 }
