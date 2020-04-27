@@ -30,14 +30,14 @@
 		<div class="row">
 		
 			<div class="col-6 pr-5">
-				<h:graphicImage library="img/placeholders" 
-					name="#{productsController.currentProduct.product_image}" styleClass="w-100"/>
+				<h:graphicImage library="img/products_img" 
+					name="#{productsController.currentProduct.product_image}" styleClass="w-100 border shadow"/>
 			</div>
 			
-			<div class="col-6">
+			<div class="col-6 align-self-center">
 			
 				<h1>#{productsController.currentProduct.product_name}</h1>
-				<p>#{productsController.currentProduct.product_category}</p>
+				<p><b>Category: </b>#{productsController.currentProduct.product_category}</p>
 				<hr/>
 				
 				<!-- Content Row -->
@@ -64,7 +64,7 @@
 					
 				<!-- End of Content Row -->	
 				</div>
-				<hr/>
+				<hr styleClass="pt-0 mt-0"/>
 				
 				<p>
 					#{productsController.currentProduct.description}
@@ -72,7 +72,6 @@
 				<hr/>
 				
 				<a href="#" class="btn btn-secondary">Add to Cart</a>
-				<a href="#" class="btn btn-outline-secondary">Checkout</a>
 				
 			</div>
 			
@@ -80,42 +79,40 @@
 		</div>
 		<br/>			
 		<hr/>
-		<br/>
 		
 		<h1>Add a Feedback!</h1>
 		<h:form>
 			<h:inputTextarea styleClass="form-control" id="message" value="#{feedbacks.feedback}" 
 				rows="3"/>
 			<br/>
-			<h:commandButton value="Submit" action="#{productsController.addFeedback(feedbacks)}" />
+			<h:commandButton value="Submit" styleClass="btn btn-secondary" action="#{productsController.addFeedback(feedbacks)}" />
 		</h:form>	
-		<br/><br/>
 		<hr/>
 		
-		<br/>
-		<h2>Feedback</h2>
-		<br/>
+		<h2 class="mb-3">Feedback</h2>
 		
 		<!-- Content Row -->
 		<ui:repeat var="feedback" value="#{productsController.feedbacks}">
-		<div class="row">
-			<div class="col-2 pl-5 pr-5">
-				<h:graphicImage library="img/placeholders" name="/profile.png" 
-					class="w-100"/>
-			</div> 
-			
-			<div class="col-2 align-self-center">
-				<h4>#{feedback.first_name} #{feedback.last_name}</h4>
-				<p>#{feedback.date_created}</p>
+			<div class="card mb-2">
+				<div class="card-body">
+					<div class="row">
+				
+						<div class="col-2 pl-5 pr-5">
+							<h:graphicImage library="img/placeholders" name="/profile.png"
+								class="w-100" />
+						</div>
+	
+						<div class="col-2 align-self-center">
+							<h5>#{feedback.first_name} #{feedback.last_name}</h5>
+							<p><small>#{feedback.date_created}</small></p>
+						</div>
+		
+						<div class="col-8 align-self-center">
+							<p>#{feedback.feedback}</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			
-			<div class="col-8 align-self-center">
-				<p>
-					#{feedback.feedback}
-				</p>
-			</div>
-		</div>
-		<hr/>
 		</ui:repeat>
 		<!-- End of Content Row -->
 		
