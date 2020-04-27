@@ -1,21 +1,5 @@
 package com.javabeans.users;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-
-import com.javabeans.users.UsersDBUtil;
-
-@ManagedBean
-@SessionScoped
-||||||| 9845bf5
-=======
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,17 +16,16 @@ import com.javabeans.users.UsersDBUtil;
 
 @ManagedBean
 @SessionScoped
->>>>>>> master
 public class UsersController {
-<<<<<<< HEAD
 	
-	private List<Users> users;
+	public List<Users> transactions;
 	private UsersDBUtil usersDBUtil;
+	private List<Users> users;
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	public UsersController() throws Exception {
+		transactions = new ArrayList<>();
 		users = new ArrayList<>();
-		
 		usersDBUtil = UsersDBUtil.getInstance();
 	}
 	
@@ -50,35 +33,15 @@ public class UsersController {
 		return users;
 	}
 	
-	public void loadUsers()
-	{
+	public void loadUsers() {
 		logger.info("Loading Users");
 		users.clear();
-		
-		try
-		{
-              users = usersDBUtil.getUsers();
-		}
-		catch(Exception ex)
-		{
+
+		try {
+			users = usersDBUtil.getUsers();
+		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
-	}
-	
-	private void addErrorMessage(Exception exc) {
-		FacesMessage message = new FacesMessage("Error: " + exc.getMessage());
-		FacesContext.getCurrentInstance().addMessage(null, message);
-	}
-||||||| 9845bf5
-=======
-	
-	public List<Users>transactions;
-	private UsersDBUtil usersDBUtil;
-	private Logger logger = Logger.getLogger(getClass().getName());
-	
-	public UsersController() throws Exception {
-		transactions = new ArrayList<>();
-		usersDBUtil = UsersDBUtil.getInstance();
 	}
 	
 	//register
@@ -141,7 +104,6 @@ public class UsersController {
 		logger.info("Edit accound details for user: " + theUser);
 		try{
 			theUser = usersDBUtil.getUserDetails(theUser);
->>>>>>> master
 
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			
