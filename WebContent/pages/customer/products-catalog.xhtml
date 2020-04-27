@@ -6,6 +6,10 @@
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{productsController.loadProducts}" />
+	</f:metadata>
+	
 	<title>Java Beans | Products Catalog</title>
 	
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
@@ -186,64 +190,6 @@
 			
 				<!-- Content Row -->
 				<div class="row">
-				
-					<!-- TESTING ONLY -->
-					<ui:repeat var="products" value="#{productsController.products}">
-						<div class="col-sm-4">
-							<div class="card">
-								<h:graphicImage library="img/placeholders" 
-									name="#{products.product_image}" styleClass="card-img-top"/>
-								<div class="card-body">
-									<h6>#{products.product_name}</h6>
-									<p>#{products.price}</p>
-									<h:form>
-										<h:commandButton value="View Details" action="#{productsController.productDetails(products)}" />
-										<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-									</h:form>
-								</div>
-							</div>
-						</div>
-					</ui:repeat>
-				
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-sm-4">
-						<div class="card">
-							<h:graphicImage library="img/placeholders" 
-								name="image-placeholder.jpg" styleClass="card-img-top"/>
-							<div class="card-body">
-								<h6>Product Name</h6>
-								<p>Price</p>
-								<a href="#" class="btn btn-secondary btn-block">View Details</a>
-								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
-							</div>
-						</div>
-					</div>
-				
 				<!-- End of Content Row -->
 				</div>
 				<br/>
@@ -286,10 +232,25 @@
 								<p>Price</p>
 								<a href="#" class="btn btn-secondary btn-block">View Details</a>
 								<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
+=======
+					<ui:repeat var="tempProduct" value="#{productsController.products}">
+						<div class="col-sm-4" >
+							<div class="card mb-3 shadow">
+								<h:graphicImage library="img/products_img" 
+									name="#{tempProduct.product_image}" styleClass="card-img-top border-bottom"/>
+								<div class="card-body">
+									<h6>#{tempProduct.product_name}</h6>
+									<p>#{tempProduct.price}</p>
+									<h:form>
+										<h:commandLink value="View Details" class="btn btn-secondary btn-block mb-2" 
+											action="#" />
+										<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
+									</h:form>
+								</div>
+>>>>>>> master
 							</div>
 						</div>
-					</div>
-				
+					</ui:repeat>
 				<!-- End of Content Row -->
 				</div>
 				

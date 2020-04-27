@@ -5,7 +5,7 @@
     
     <h:head>
     
-    	<title>Acccount Details - Java Beans</title>
+    	<title>Account Details - Java Beans</title>
 	    <h:outputStylesheet library="css" name="bootstrap.min.css" />
     </h:head>
     
@@ -18,11 +18,10 @@
 		<div class="container">
 		<br/>
 		
-			<h2 class="d-inline">Account Details</h2> 
 			<h:form>
-				<h:commandButton value="Edit" action="#{usersController.editAccountDetails(users)}" />
+				<h2 class="d-inline">Account Details</h2> 
+				<h:commandLink value="Edit" styleClass="d-inline ml-2" action="#{usersController.editAccountDetails(users)}" />
 			</h:form>
-			<br/><br/>
 			
 			<!-- Content Row -->
 			<div class="row">
@@ -32,28 +31,52 @@
 					<div class="card">
 					
 						<div class="card-header">
-							Personal Information 
+							<b>Personal Information</b> 
 						</div>
 						
 						<div class="card-body">
 						
 							<div class="row">
-								<div class="col-4">#{users.first_name}</div>
-								<div class="col-4">#{users.middle_name}</div>
-								<div class="col-4">#{users.last_name}</div>
+								<div class="col-4">
+									<b>First Name</b><br/>
+									#{users.first_name}
+								</div>
+								<div class="col-4">
+									<b>Middle Name</b><br/>
+									#{users.middle_name}
+								</div>
+								<div class="col-4">
+									<b>Last Name</b><br/>
+									#{users.last_name}
+								</div>
 							</div>
 							<br/>
 							
 							<div class="row">
-								<div class="col-4">#{users.email}</div>
-								<div class="col-4">#{users.telephone_no}</div>
-								<div class="col-4">#{users.mobile_no}</div>
+								<div class="col-4">
+									<b>Email</b><br/>
+									#{users.email}
+								</div>
+								<div class="col-4">
+									<b>Telephone No</b><br/>
+									#{users.telephone_no}
+								</div>
+								<div class="col-4">
+									<b>Mobile No</b><br/>
+									#{users.mobile_no}
+								</div>
 							</div>
 							<br/>
 							
 							<div class="row">
-								<div class="col-4">#{users.DOB}</div>
-								<div class="col-4">#{users.gender}</div>
+								<div class="col-4">
+									<b>Birthday</b><br/>
+									#{users.DOB}
+								</div>
+								<div class="col-4">
+									<b>Gender</b><br/>
+									#{users.gender}
+								</div>
 								<div class="col-4"></div>
 							</div>
 							
@@ -71,22 +94,40 @@
 					<div class="card">
 					
 						<div class="card-header">
-							Address
+							<b>Address</b>
 						</div>
 						
 						<div class="card-body">
 						
 							<div class="row">
-								<div class="col-4">#{users.bldg_no}</div>
-								<div class="col-4">#{users.street}</div>
-								<div class="col-4">#{users.city}</div>
+								<div class="col-4">
+									<b>Bldg/House No</b><br/>
+									#{users.bldg_no}
+								</div>
+								<div class="col-4">
+									<b>Street</b><br/>
+									#{users.street}
+								</div>
+								<div class="col-4">
+									<b>City</b><br/>
+									#{users.city}
+								</div>
 							</div>
 							<br/>
 							
 							<div class="row">
-								<div class="col-4">#{users.barangay}</div>
-								<div class="col-4">#{users.province}</div>
-								<div class="col-4">#{users.zip_code}</div>
+								<div class="col-4">
+									<b>Barangay</b><br/>
+									#{users.barangay}
+								</div>
+								<div class="col-4">
+									<b>Province</b><br/>
+									#{users.province}
+								</div>
+								<div class="col-4">
+									<b>Zip Code</b><br/>
+									#{users.zip_code}
+								</div>
 							</div>
 													
 						<!-- End of Card Body -->
@@ -101,10 +142,11 @@
 			</div>
 			<br/>
 			
-			<h2>Transaction History</h2>
-			<br/>
+			<h2 class="mb-3">Transaction History</h2>
 			
-			<h:dataTable value="#{usersController.transactions}" var="tempTransaction" >
+			<h:dataTable styleClass="table table-striped table-hover" 
+				value="#{usersController.transactions}" var="tempTransaction"
+				headerClass="bg-dark text-white" >
 				<h:column>
 					<!-- Column Header -->
 					<f:facet name="header">Order No.</f:facet>

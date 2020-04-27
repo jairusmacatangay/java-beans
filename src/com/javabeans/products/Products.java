@@ -1,12 +1,11 @@
 package com.javabeans.products;
 
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
+import javax.servlet.http.Part;
 
 @ManagedBean
-@SessionScoped
 public class Products {
 
 	private int product_id;
@@ -15,20 +14,35 @@ public class Products {
 	private String description;
 	private float price;
 	private String product_image;
+	private Part image;
+	
+	List<String> categoryOptions;
 	
 	public Products() {
 		
 	}
 	
-	public Products(int product_id, String product_category, String product_name, String description, 
-			float price, String product_image) {
-		
+	public Products(int product_id, String product_category, String product_name, 
+			String description, float price, String product_image) {
 		this.product_id = product_id;
 		this.product_category = product_category;
 		this.product_name = product_name;
-		this.description = description;
 		this.price = price;
+		this.description = description;
 		this.product_image = product_image;
+	}
+	
+	public Products(int product_id, String product_category, String product_name, 
+			String description, float price) {
+		this.product_id = product_id;
+		this.product_category = product_category;
+		this.product_name = product_name;
+		this.price = price;
+		this.description = description;
+	}
+	
+	public List<String> getCategoryOptions() {
+		return categoryOptions;
 	}
 
 	public int getProduct_id() {
@@ -79,5 +93,15 @@ public class Products {
 		this.product_image = product_image;
 	}
 
-	
+	public void setCategoryOptions(List<String> categoryOptions) {
+		this.categoryOptions = categoryOptions;
+	}
+
+	public Part getImage() {
+		return image;
+	}
+
+	public void setImage(Part image) {
+		this.image = image;
+	}
 }
