@@ -5,9 +5,9 @@
 
 <h:head>
 	<f:metadata>
-		<f:event type="preRenderView" listener="#{productsController.loadEquipment}"/>
-		<f:event type="preRenderView" listener="#{productsController.loadCoffee}"/>
-		<f:event type="preRenderView" listener="#{productsController.loadDrinkware}"/>
+		<f:event type="preRenderView" listener="#{homeProductsController.loadEquipment}"/>
+		<f:event type="preRenderView" listener="#{homeProductsController.loadCoffee}"/>
+		<f:event type="preRenderView" listener="#{homeProductsController.loadDrinkware}"/>
 	</f:metadata>
 	
 	<title>Home - Java Beans</title>
@@ -87,7 +87,7 @@
 		<hr />
 		<div class="row">
 			<!-- UI Repeat -->
-			<ui:repeat var="coffee" value="#{productsController.coffee}">
+			<ui:repeat var="coffee" value="#{homeProductsController.coffee}">
 				<div class="col-3">
 					<div class="card shadow">
 						<h:graphicImage library="img/products_img" 
@@ -108,7 +108,7 @@
 		<hr />
 		<div class="row">
 			<!-- UI Repeat -->
-			<ui:repeat var="equipment" value="#{productsController.equipment}">
+			<ui:repeat var="equipment" value="#{homeProductsController.equipment}">
 				<div class="col-3">
 					<div class="card shadow">
 						<h:graphicImage library="img/products_img" 
@@ -129,7 +129,7 @@
 		<hr />
 		<div class="row">
 			<!-- UI Repeat -->
-			<ui:repeat var="drinkware" value="#{productsController.drinkware}">
+			<ui:repeat var="drinkware" value="#{homeProductsController.drinkware}">
 				<div class="col-3">
 					<div class="card shadow">
 						<h:graphicImage library="img/products_img" 
