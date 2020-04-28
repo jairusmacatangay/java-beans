@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.javabeans.users.Users;
+
 public class InquiriesDBUtil {
 	private static InquiriesDBUtil instance;
 	private DataSource dataSource;
@@ -59,7 +61,7 @@ public class InquiriesDBUtil {
 		}
 	}
 	
-	public Inquiries getUser() throws Exception {
+	public Inquiries getUser(Users theUser) throws Exception {
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
 		ResultSet myRs = null;
@@ -68,7 +70,7 @@ public class InquiriesDBUtil {
 			myConn = getConnection();
 			String sql = "SELECT first_name, last_name, email FROM users WHERE user_id = ?";
 			myStmt = myConn.prepareStatement(sql);
-			myStmt.setInt(1, 1);
+			myStmt.setInt(1, theUser.getUser_id());
 			myRs = myStmt.executeQuery();
 			Inquiries user = null;
 			

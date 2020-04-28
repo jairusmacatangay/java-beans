@@ -8,6 +8,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import com.javabeans.users.Users;
+
 @ManagedBean
 @SessionScoped
 public class InquiriesController {
@@ -27,9 +29,9 @@ public class InquiriesController {
 		return "contact-us?faces-redirect=true";
 	}
 	
-	public void loadUser() {
+	public void loadUser(Users theUser) {
 		try {
-			Inquiries user = inquiriesDBUtil.getUser();
+			Inquiries user = inquiriesDBUtil.getUser(theUser);
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			Map<String, Object> requestMap = externalContext.getRequestMap();
 			requestMap.put("inquiries", user);
