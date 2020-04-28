@@ -7,7 +7,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<f:metadata>
-		<f:event type="preRenderView" listener="#{productsController.loadProducts}" />
+		<f:event type="preRenderView" listener="#{productsController.loadTotalProductsValues}"/>
 	</f:metadata>
 	
 	<title>Java Beans | Products Catalog</title>
@@ -40,9 +40,11 @@
 				<h:form>
 					<!-- Search Bar -->
 					<div class="input-group">
-						<h:inputText class="form-control" value="Search" />
+						<h:inputText class="form-control" value="#{productsController.theSearchProduct}" 
+							id="theSearchProduct" />
 						<div class="input-group-append">
-							<h:commandButton value="&#128269;" class="btn btn-secondary"/>
+							<h:commandButton value="&#128269;" class="btn btn-secondary" 
+								action="#{productsController.searchProducts}"/>
 						</div>
 					</div>
 				</h:form>
@@ -54,37 +56,33 @@
 						Categories
 					</div>
 					<div class="card-body">
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<a href="#" class="link-no-deco">
-									All
-									<span class="badge badge-secondary 
-										float-right">74</span>
-								</a>
-							</li>
-							
-							<li class="list-group-item">
-								<a href="#" class="link-no-deco">
-									Coffee
-									<span class="badge badge-secondary
-										 float-right">30</span>
-								</a>
-							</li>
-							
-							<li class="list-group-item">
-								<a href="#" class="link-no-deco">
-									Equipment<span class="badge 
-										badge-secondary float-right">24</span>
-								</a>
-							</li>
-							
-							<li class="list-group-item">
-								<a href="#" class="link-no-deco">
-									Drinkware<span class="badge 
-										badge-secondary float-right">20</span>
-								</a>
-							</li>
-						</ul>
+						<h:form>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<h:commandLink styleClass="link-no-deco" value="All"
+										action="#{productsController.loadProducts}"/>	
+									<span class="badge badge-secondary float-right">#{products.totalProducts}</span>
+								</li>
+								
+								<li class="list-group-item">
+									<h:commandLink styleClass="link-no-deco" value="Coffee"
+										action="#{productsController.loadCoffeeProducts}"/>
+									<span class="badge badge-secondary float-right">#{products.totalCoffee}</span>
+								</li>
+								
+								<li class="list-group-item">
+									<h:commandLink styleClass="link-no-deco" value="Equipment"
+										action="#{productsController.loadEquipmentProducts}"/>
+									<span class="badge badge-secondary float-right">#{products.totalEquipment}</span>
+								</li>
+								
+								<li class="list-group-item">
+									<h:commandLink styleClass="link-no-deco" value="Drinkware"
+										action="#{productsController.loadDrinkwareProducts}"/>
+									<span class="badge badge-secondary float-right">#{products.totalDrinkware}</span>
+								</li>
+							</ul>
+						</h:form>
 					</div>
 				<!-- End of Categories -->
 				</div>

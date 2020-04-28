@@ -16,10 +16,23 @@ public class Products {
 	private String product_image;
 	private Part image;
 	
+	//Total Number of Products Variables
+	private int totalCoffee;
+	private int totalEquipment;
+	private int totalDrinkware;
+	private int totalProducts;
+	
 	List<String> categoryOptions;
 	
 	public Products() {
 		
+	}
+	
+	public Products(int totalCoffee, int totalEquipment, int totalDrinkware, int totalProducts) {
+		this.totalCoffee = totalCoffee;
+		this.totalEquipment = totalEquipment;
+		this.totalDrinkware = totalDrinkware;
+		this.totalProducts = totalProducts;
 	}
 	
 	public Products(int product_id, String product_category, String product_name, 
@@ -103,5 +116,37 @@ public class Products {
 
 	public void setImage(Part image) {
 		this.image = image;
+	}
+
+	public int getTotalCoffee() {
+		return totalCoffee;
+	}
+
+	public void setTotalCoffee(int totalCoffee) {
+		this.totalCoffee = totalCoffee;
+	}
+
+	public int getTotalEquipment() {
+		return totalEquipment;
+	}
+
+	public void setTotalEquipment(int totalEquipment) {
+		this.totalEquipment = totalEquipment;
+	}
+
+	public int getTotalDrinkware() {
+		return totalDrinkware;
+	}
+
+	public void setTotalDrinkware(int totalDrinkware) {
+		this.totalDrinkware = totalDrinkware;
+	}
+
+	public int getTotalProducts() {
+		return totalProducts;
+	}
+
+	public void setTotalProducts(int totalProducts) {
+		this.totalProducts = totalProducts;
 	}
 }

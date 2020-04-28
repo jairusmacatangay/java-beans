@@ -23,8 +23,17 @@ public class ProductsController {
 	private FeedbacksDBUtil feedbacksDBUtil;
 	private List<Products> productsList;
 	private ProductsDBUtil productsDBUtil;
+	private String theSearchProduct;
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
+	public String getTheSearchProduct() {
+		return theSearchProduct;
+	}
+
+	public void setTheSearchProduct(String theSearchProduct) {
+		this.theSearchProduct = theSearchProduct;
+	}
+
 	public ProductsController() throws Exception {
 		productsList = new ArrayList<>();
 		productsDBUtil = ProductsDBUtil.getInstance();
@@ -35,7 +44,7 @@ public class ProductsController {
 		return productsList;
 	}
 	
-	public void loadProducts() {
+	public String loadProducts() {
 		logger.info("Loading products");
 		productsList.clear();
 		try {
@@ -43,6 +52,49 @@ public class ProductsController {
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
+		return "products-catalog";
+	}
+	
+	public void loadTotalProductsValues() {
+		try {
+			Products values = productsDBUtil.getProductValues();
+			
+			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			Map<String, Object> requestMap = externalContext.getRequestMap();
+			requestMap.put("products", values);
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		}
+	}
+	
+	public String loadCoffeeProducts() {
+		productsList.clear();
+		try {
+			productsList = productsDBUtil.getCoffeeProducts();
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		}
+		return "products-catalog";
+	}
+	
+	public String loadEquipmentProducts() {
+		productsList.clear();
+		try {
+			productsList = productsDBUtil.getEquipmentProducts();
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		}
+		return "products-catalog";
+	}
+	
+	public String loadDrinkwareProducts() {
+		productsList.clear();
+		try {
+			productsList = productsDBUtil.getDrinkwareProducts();
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		}
+		return "products-catalog";
 	}
 	
 	public List<Feedbacks> getFeedbacks() {
@@ -166,6 +218,21 @@ public class ProductsController {
 			return null;
 		}
 		return "view-all-products?faces-redirect=true";
+	}
+	
+	public String searchProducts() {
+		try {
+			if (theSearchProduct != null && theSearchProduct.trim().length() > 0) {
+				productsList = productsDBUtil.searchProducts(theSearchProduct);
+			} else {
+				productsList = productsDBUtil.getProducts();
+			}
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+		} finally {
+			theSearchProduct = null;
+		}
+		return "products-catalog";
 	}
 	
 	private void addErrorMessage(Exception exc) {
