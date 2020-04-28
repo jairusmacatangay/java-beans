@@ -203,6 +203,8 @@
 									<h:form>
 										<h:commandButton value="View Details" styleClass="btn btn-secondary btn-block"
 											action="#{productsController.productDetails(tempProduct)}" />
+										<h:commandButton value="Add to Cart" styleClass="btn btn-outline-secondary btn-block"
+											action="#{ordersController.addToCart(tempProduct.product_id, 1, users)}" />
 										<a href="#" class="btn btn-outline-secondary btn-block">Add to Cart</a>
 									</h:form>
 								</div>
