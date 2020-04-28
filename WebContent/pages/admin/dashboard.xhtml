@@ -4,6 +4,10 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
+	<f:metadata>
+		<f:event type="preRenderView" listener="#{dashboardController.loadDashboardValues}" />
+	</f:metadata>
+
 	<title>Dashboard - Java Beans</title>
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="sb-admin-2.min.css" />
@@ -34,7 +38,7 @@
                       				Earnings (Monthly)
                       			</div>
                       			<div class="h5 mb-0 font-weight-bold text-gray-800">
-                      				$40,000
+                      				Php #{dashboard.totalEarnings}
                       			</div>
                     		</div>
                     		<div class="col-auto">
@@ -56,7 +60,7 @@
 	                      			Products
 	                      		</div>
 	                      		<div class="h5 mb-0 font-weight-bold text-gray-800">
-	                      			212
+	                      			#{dashboard.totalProducts}
 	                      		</div>
 	                    	</div>
 	                    	<div class="col-auto">
@@ -78,7 +82,7 @@
 	                      			Orders
 	                      		</div>
 	                      		<div class="h5 mb-0 font-weight-bold text-gray-800">
-	                      			689
+	                      			#{dashboard.totalOrders}
 	                      		</div>
 	                    	</div>
 	                    	<div class="col-auto">
@@ -100,7 +104,7 @@
                       				Users
                       			</div>
                       			<div class="h5 mb-0 font-weight-bold text-gray-800">
-                      				112
+                      				#{dashboard.totalUsers}
                       			</div>
                     		</div>
                     		<div class="col-auto">
