@@ -274,6 +274,88 @@ public class OrdersDBUtil {
 		updateCart(order_id, theUser);
 	}	
 	
+	public float getPrice(int product_id) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		float price = 0;
+
+		try {
+			myConn = getConnection();
+			String sql = "SELECT price FROM products WHERE product_id = ?";
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setInt(1, product_id);
+			myRs = myStmt.executeQuery();
+
+			if (myRs.next()) {
+				price = myRs.getFloat("price");
+			}
+
+			return price;
+		} finally {
+			close(myConn, myStmt, myRs);
+		}
+	}
+	
+	public boolean isExistingToCart(int product_id, Users theUser) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		
+		try {
+			myConn = getConnection();
+			String sql = "SELECT ref_no FROM order_details WHERE product_id = ? AND user_id = ? AND order_id = 0";
+			myStmt = myConn.prepareStatement(sql);
+			myStmt.setInt(1, product_id);
+			myStmt.setInt(2, theUser.getUser_id());
+			myRs = myStmt.executeQuery();
+			
+			if (myRs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} finally {
+			close(myConn, myStmt, myRs);
+		}
+	}
+	
+	public void addToCart(int product_id, int quantity, Users theUser) throws Exception {
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		float price = getPrice(product_id);
+		
+		try {
+			myConn = getConnection();
+			String sql = "";
+			
+			if (isExistingToCart(product_id, theUser)) {
+				sql = "UPDATE order_details SET quantity = quantity + ?, "
+						+ "total_amount = total_amount + ? WHERE product_id = ? AND "
+						+ "order_id = 0 AND user_id = ?";
+				myStmt = myConn.prepareStatement(sql);
+				myStmt.setInt(1, quantity);
+				myStmt.setFloat(2, price);
+				myStmt.setInt(3, product_id);
+				myStmt.setInt(4, theUser.getUser_id());
+				myStmt.execute();
+			} else {
+				sql = "INSERT INTO order_details (`quantity`, `total_amount`, `product_id`, `order_id`, `user_id`) "
+						+ "VALUES (?, ?, ?, 0, ?)";
+				myStmt = myConn.prepareStatement(sql);
+				myStmt.setInt(1, quantity);
+				myStmt.setFloat(2, price * quantity);
+				myStmt.setInt(3, product_id);
+				myStmt.setInt(4, theUser.getUser_id());
+				myStmt.execute();
+			}
+			
+			
+		} finally {
+			close(myConn, myStmt);
+		}
+	}
+	
 	private static Connection getConnection() throws Exception {
 		Connection theConn = dataSource.getConnection();
 		return theConn;

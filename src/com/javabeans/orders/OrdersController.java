@@ -105,6 +105,16 @@ public class OrdersController {
 		return "cart?faces-redirect=true";
 	}
 	
+	public String addToCart(int product_id, int quantity, Users theUser) {
+		try {
+			ordersDBUtil.addToCart(product_id, quantity, theUser);
+		} catch (Exception ex) {
+			addErrorMessage(ex);
+			return null;
+		}
+		return "products-catalog";
+	}
+	
 	private void addErrorMessage(Exception exc) {
 		FacesMessage message = new FacesMessage("Error: " + exc.getMessage());
 		FacesContext.getCurrentInstance().addMessage(null, message);
