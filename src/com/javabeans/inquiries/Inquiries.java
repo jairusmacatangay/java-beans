@@ -1,7 +1,5 @@
 package com.javabeans.inquiries;
 
-import java.time.LocalDateTime;
-
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
@@ -12,10 +10,14 @@ public class Inquiries {
 	private String last_name;
 	private String email;
 	private String message;
-	private LocalDateTime date_received;
+	private String date_received;
+	private String status;
 	private int user_id;
+	private String date_replied;
+	
+	//Mail Var
+	public String subject;
 	private String reply;
-	private LocalDateTime date_replied;
 	
 	public Inquiries() {
 		
@@ -25,6 +27,35 @@ public class Inquiries {
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.email = email;
+	}
+	
+	public Inquiries(int inquiry_id, String first_name, String last_name, String email, String date_received, String status) {
+		this.inquiry_id = inquiry_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.date_received = date_received;
+		this.status = status;
+	}
+	
+	public Inquiries(int inquiry_id, String first_name, String last_name,
+			String email, String message, String date_received, String status) {
+		this.inquiry_id = inquiry_id;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.message = message;
+		this.date_received = date_received;
+		this.status = status;
+	}
+	
+	
+	public Inquiries(String first_name, String last_name, String email, String message, String date_received) {
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.email = email;
+		this.message = message;
+		this.date_received = date_received;
 	}
 	
 	public int getInquiry_id() {
@@ -67,11 +98,11 @@ public class Inquiries {
 		this.message = message;
 	}
 
-	public LocalDateTime getDate_received() {
+	public String getDate_received() {
 		return date_received;
 	}
 
-	public void setDate_received(LocalDateTime date_received) {
+	public void setDate_received(String date_received) {
 		this.date_received = date_received;
 	}
 
@@ -91,11 +122,27 @@ public class Inquiries {
 		this.reply = reply;
 	}
 
-	public LocalDateTime getDate_replied() {
+	public String getDate_replied() {
 		return date_replied;
 	}
 
-	public void setDate_replied(LocalDateTime date_replied) {
+	public void setDate_replied(String date_replied) {
 		this.date_replied = date_replied;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 }
