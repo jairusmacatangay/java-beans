@@ -50,16 +50,7 @@
 					<div class="col-4"></div>
 					
 					<div class="col-4">
-						<div class="form-group row">
-							<div class="col-2"></div>
-							<label for="quantity" class="col-3 col-form-label float-right">
-								Qty:
-							</label>
-							<div class="col-7">
-								<input type="number" id="quantity" value="1" 
-									min="1" max="100" class="form-control"/>
-							</div>
-						</div>
+						
 					</div>
 					
 				<!-- End of Content Row -->	
@@ -71,7 +62,10 @@
 				</p>
 				<hr/>
 				
-				<a href="#" class="btn btn-secondary">Add to Cart</a>
+				<h:form>
+					<h:commandButton value="Add to Cart" styleClass="btn btn-outline-secondary"
+						action="#{ordersController.addToCart(productsController.currentProduct.product_id, 1, users)}" />
+				</h:form>
 				
 			</div>
 			
