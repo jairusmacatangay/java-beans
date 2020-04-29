@@ -160,7 +160,10 @@ public class UsersController {
 		return transactions;
 	}
 	
-	
+	public String logout() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/pages/guest/home-page?faces-redirect=true";
+	}
 	
 	private void addErrorMessage(Exception exc) {
 		FacesMessage message = new FacesMessage("Error: " + exc.getMessage());
