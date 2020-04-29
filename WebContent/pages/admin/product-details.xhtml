@@ -31,55 +31,34 @@
 		<div class="row">
 		
 			<div class="col-6 pr-5">
-				<h:graphicImage library="img/placeholders" 
-					name="image-placeholder.jpg" styleClass="w-100"/>
+				<h:graphicImage library="img/products_img" 
+					name="#{productsController.currentProduct.product_image}" styleClass="w-100 border shadow"/>
 			</div>
 			
 			<div class="col-6">
 			
-				<h1>#{product.name}</h1>
-				<p>#{product.category}</p>
+				<h1>#{productsController.currentProduct.product_name}</h1>
+				<p><b>Category: </b>#{productsController.currentProduct.product_category}</p>
 				<hr/>
 				
 				<!-- Content Row -->
 				<div class="row">
 				
 					<div class="col-4">
-						<h3>#{product.price}</h3>
+						<h3>Php #{productsController.currentProduct.price}</h3>
 					</div>
 					
 					<div class="col-4"></div>
 					
 					<div class="col-4">
-						<div class="form-group row">
-							<div class="col-2"></div>
-							<label for="quantity" class="col-3 col-form-label float-right">
-								Qty:
-							</label>
-							<div class="col-7">
-								<input type="number" id="quantity" value="1" 
-									min="1" max="100" class="form-control"/>
-							</div>
-						</div>
+						
 					</div>
 					
 				<!-- End of Content Row -->	
 				</div>
 				<hr/>
-				
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-					sed do eiusmod tempor incididunt ut labore et dolore magna 
-					aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-					ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-					Duis aute irure dolor in reprehenderit in voluptate velit 
-					esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-					occaecat cupidatat non proident, sunt in culpa qui officia 
-					deserunt mollit anim id est laborum.
-				</p>
-				<hr/>
-				
-				<a href="#" class="btn btn-secondary">Edit</a>
+
+				<p>#{productsController.currentProduct.description}</p>
 				
 			</div>
 			
@@ -93,87 +72,29 @@
 		<br/>
 		
 		<!-- Content Row -->
-		<div class="row">
+		<ui:repeat var="feedback" value="#{productsController.feedbacks}">
+			<div class="card mb-2">
+				<div class="card-body">
+					<div class="row">
+				
+						<div class="col-2 pl-5 pr-5">
+							<h:graphicImage library="img/placeholders" name="/profile.png"
+								class="w-100" />
+						</div>
+	
+						<div class="col-2 align-self-center">
+							<h5>#{feedback.first_name} #{feedback.last_name}</h5>
+							<p><small>#{feedback.date_created}</small></p>
+						</div>
 		
-			<div class="col-2 pl-5 pr-5">
-				<h:graphicImage library="img/placeholders" name="/profile.png" 
-					class="w-100"/>
+						<div class="col-8 align-self-center">
+							<p>#{feedback.feedback}</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			
-			<div class="col-2 align-self-center">
-				<h4>John Doe</h4>
-				<p>April 13, 2020</p>
-			</div>
-			
-			<div class="col-8 align-self-center">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Ut dignissim lectus sodales, tempor elit et, vulputate 
-					velit. Donec eget dolor a nisl imperdiet consectetur vitae
-					eget purus. Donec placerat mauris et viverra sollicitudin.
-					Vivamus lectus massa, tempus ac quam non, placerat ultricies
-					lacus. Sed ultricies lectus sed massa eleifend, vitae 
-					imperdiet lacus hendrerit.
-				</p>
-			</div>
+		</ui:repeat>
 		<!-- End of Content Row -->
-		</div>
-		<hr/>
-		
-		<!-- Content Row -->
-		<div class="row">
-		
-			<div class="col-2 pl-5 pr-5">
-				<h:graphicImage library="img/placeholders" name="/profile.png" 
-					class="w-100"/>
-			</div>
-			
-			<div class="col-2 align-self-center">
-				<h4>John Doe</h4>
-				<p>April 13, 2020</p>
-			</div>
-			
-			<div class="col-8 align-self-center">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Ut dignissim lectus sodales, tempor elit et, vulputate 
-					velit. Donec eget dolor a nisl imperdiet consectetur vitae
-					eget purus. Donec placerat mauris et viverra sollicitudin.
-					Vivamus lectus massa, tempus ac quam non, placerat ultricies
-					lacus. Sed ultricies lectus sed massa eleifend, vitae 
-					imperdiet lacus hendrerit.
-				</p>
-			</div>
-		<!-- End of Content Row -->
-		</div>
-		<hr/>
-		
-		<!-- Content Row -->
-		<div class="row">
-		
-			<div class="col-2 pl-5 pr-5">
-				<h:graphicImage library="img/placeholders" name="/profile.png" 
-					class="w-100"/>
-			</div>
-			
-			<div class="col-2 align-self-center">
-				<h4>John Doe</h4>
-				<p>April 13, 2020</p>
-			</div>
-			
-			<div class="col-8 align-self-center">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Ut dignissim lectus sodales, tempor elit et, vulputate 
-					velit. Donec eget dolor a nisl imperdiet consectetur vitae
-					eget purus. Donec placerat mauris et viverra sollicitudin.
-					Vivamus lectus massa, tempus ac quam non, placerat ultricies
-					lacus. Sed ultricies lectus sed massa eleifend, vitae 
-					imperdiet lacus hendrerit.
-				</p>
-			</div>
-		<!-- End of Content Row -->
-		</div>
 		<br/>
 				
 	<!-- End of Container -->	

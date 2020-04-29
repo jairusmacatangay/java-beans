@@ -123,7 +123,7 @@ public class ProductsController {
 			addErrorMessage(exc);
 			return null;
 		}
-		return "/pages/customer/product-details?faces-redirect=true";
+		return "product-details?faces-redirect=true";
 	}
 	
 	public String productDetailsGuest(Products theProduct) {
@@ -217,7 +217,7 @@ public class ProductsController {
 			addErrorMessage(ex);
 			return null;
 		}
-		return "view-all-products?faces-redirect=true";
+		return "products-catalog?faces-redirect=true";
 	}
 	
 	public String searchProducts() {
