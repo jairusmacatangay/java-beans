@@ -54,7 +54,8 @@
 				    	<h:form>
 							<h:commandLink styleClass="dropdown-item" value="Manage Account"
 								action="#{usersController.accountDetails(users)}" />
-							<a class="dropdown-item" href="#">Logout</a>
+							<h:commandLink styleClass="dropdown-item" value="Logout"
+								action="#{usersController.logout()}" />
 						</h:form>
 				    </div>
 				</li>

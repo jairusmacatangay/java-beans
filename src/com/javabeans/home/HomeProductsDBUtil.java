@@ -41,16 +41,17 @@ public class HomeProductsDBUtil {
 		
 		try {
 			myConn = getConnection();
-			String sql = "SELECT product_name, price, product_image FROM"
+			String sql = "SELECT product_id, product_name, price, product_image FROM"
 					+ " products WHERE product_category = 'Equipment' LIMIT 4";
 			myStmt = myConn.createStatement();
 			myRs = myStmt.executeQuery(sql);
 			
 			while (myRs.next()) {
+				int product_id = myRs.getInt("product_id");
 				String product_name = myRs.getString("product_name");
 				float price = myRs.getFloat("price");
 				String product_image = myRs.getString("product_image");
-				HomeProducts tempEquipment = new HomeProducts(product_name, price, product_image);
+				HomeProducts tempEquipment = new HomeProducts(product_id, product_name, price, product_image);
 				equipment.add(tempEquipment);
 			}
 			return equipment;
@@ -67,16 +68,17 @@ public class HomeProductsDBUtil {
 		
 		try {
 			myConn = getConnection();
-			String sql = "SELECT product_name, price, product_image FROM"
+			String sql = "SELECT product_id, product_name, price, product_image FROM"
 					+ " products WHERE product_category = 'Coffee' LIMIT 4";
 			myStmt = myConn.createStatement();
 			myRs = myStmt.executeQuery(sql);
 			
 			while (myRs.next()) {
+				int product_id = myRs.getInt("product_id");
 				String product_name = myRs.getString("product_name");
 				float price = myRs.getFloat("price");
 				String product_image = myRs.getString("product_image");
-				HomeProducts tempCoffee = new HomeProducts(product_name, price, product_image);
+				HomeProducts tempCoffee = new HomeProducts(product_id, product_name, price, product_image);
 				coffee.add(tempCoffee);
 			}
 			return coffee;
@@ -93,16 +95,17 @@ public class HomeProductsDBUtil {
 		
 		try {
 			myConn = getConnection();
-			String sql = "SELECT product_name, price, product_image FROM"
+			String sql = "SELECT product_id, product_name, price, product_image FROM"
 					+ " products WHERE product_category = 'Drinkware' LIMIT 4";
 			myStmt = myConn.createStatement();
 			myRs = myStmt.executeQuery(sql);
 			
 			while (myRs.next()) {
+				int product_id = myRs.getInt("product_id");
 				String product_name = myRs.getString("product_name");
 				float price = myRs.getFloat("price");
 				String product_image = myRs.getString("product_image");
-				HomeProducts tempDrinkware = new HomeProducts(product_name, price, product_image);
+				HomeProducts tempDrinkware = new HomeProducts(product_id, product_name, price, product_image);
 				drinkware.add(tempDrinkware);
 			}
 			return drinkware;

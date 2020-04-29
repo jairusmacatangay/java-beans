@@ -11,16 +11,16 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 @ManagedBean
 public class HomeProductsController {
-	private HomeProductsDBUtil productsDBUtil;
+	private HomeProductsDBUtil homeProductsDBUtil;
 	private List<HomeProducts> equipment;
 	private List<HomeProducts> coffee;
 	private List<HomeProducts> drinkware;
-		
+	
 	public HomeProductsController() throws Exception {
 		equipment = new ArrayList<>();
 		coffee = new ArrayList<>();
 		drinkware = new ArrayList<>();
-		productsDBUtil = HomeProductsDBUtil.getInstance();
+		homeProductsDBUtil = HomeProductsDBUtil.getInstance();
 	}
 	
 	public List<HomeProducts> getEquipment() {
@@ -30,7 +30,7 @@ public class HomeProductsController {
 	public void loadEquipment() {
 		equipment.clear();
 		try {
-			equipment = productsDBUtil.getEquipment();
+			equipment = homeProductsDBUtil.getEquipment();
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
@@ -43,7 +43,7 @@ public class HomeProductsController {
 	public void loadCoffee() {
 		coffee.clear();
 		try {
-			coffee = productsDBUtil.getCoffee();
+			coffee = homeProductsDBUtil.getCoffee();
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}
@@ -56,7 +56,7 @@ public class HomeProductsController {
 	public void loadDrinkware() {
 		drinkware.clear();
 		try {
-			drinkware = productsDBUtil.getDrinkware();
+			drinkware = homeProductsDBUtil.getDrinkware();
 		} catch (Exception ex) {
 			addErrorMessage(ex);
 		}

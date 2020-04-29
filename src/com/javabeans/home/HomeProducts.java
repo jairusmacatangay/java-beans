@@ -8,12 +8,31 @@ public class HomeProducts {
 	private String product_name;
 	private float price;
 	private String product_image;
+	private String product_category;
+	private String description;
 	
+	public String getProduct_category() {
+		return product_category;
+	}
+
+	public void setProduct_category(String product_category) {
+		this.product_category = product_category;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public HomeProducts() {
 		
 	}
 	
-	public HomeProducts(String product_name, float price, String product_image) {
+	public HomeProducts(int product_id, String product_name, float price, String product_image) {
+		this.product_id = product_id;
 		this.product_name = product_name;
 		this.price = price;
 		this.product_image = product_image;
