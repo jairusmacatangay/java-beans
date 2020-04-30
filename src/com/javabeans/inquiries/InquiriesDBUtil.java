@@ -60,16 +60,17 @@ public class InquiriesDBUtil {
 		
 		try {
 			myConn = getConnection();
-			String sql = "INSERT INTO inquiries (first_name, last_name, email, message, date_received) "
-					+ "VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO inquiries (first_name, last_name, email, message, status, date_received) "
+					+ "VALUES (?, ?, ?, ?, ?, ?)";
 			myStmt = myConn.prepareStatement(sql);
 			myStmt.setString(1, inquiry.getFirst_name());
 			myStmt.setString(2, inquiry.getLast_name());
 			myStmt.setString(3, inquiry.getEmail());
 			myStmt.setString(4, inquiry.getMessage());
+			myStmt.setString(5, "Pending reply");
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			LocalDateTime now = LocalDateTime.now();
-			myStmt.setString(5, dtf.format(now));
+			myStmt.setString(6, dtf.format(now));
 			myStmt.execute();
 		} finally {
 			close(myConn, myStmt);
@@ -169,8 +170,8 @@ public class InquiriesDBUtil {
 	
 	public void sendMail(String email, String subject, String reply) throws MessagingException {
 		logger.info("Got inside of sendMail()");
-		final String username = "place email here";
-		final String password = "place password here";
+		final String username = "";
+		final String password = "";
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", "true");
 		properties.put("mail.smtp.starttls.enable", "true");

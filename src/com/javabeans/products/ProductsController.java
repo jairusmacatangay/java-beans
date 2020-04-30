@@ -191,7 +191,7 @@ public class ProductsController {
 			addErrorMessage(exc);
 			return null;
 		}
-		return "view-all-products?faces-redirect=true";
+		return "products-catalog?faces-redirect=true";
 	}
 		
 	public void loadProduct(int product_id) {
